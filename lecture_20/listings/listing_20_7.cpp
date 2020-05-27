@@ -1,0 +1,102 @@
+#include <iostream>
+
+void square(int &, int &);
+void cube(int &, int &);
+void swap(int &, int &);
+void getVals(int &, int &);
+void printVals(void (*)(int&, int&), int&, int&);
+
+int main()
+{
+
+    int val1 = 1, val2 = 2;
+    int choice, i;
+    bool loop = true;
+
+    void (*pFunc)(int&, int&);
+
+    while(loop)
+    {
+        std::cout << "(0) Quit, (1) Change Values, (2) Square Values, (3) Cube Values, or (4) Swap." << std::endl;
+        std::cin >> choice;
+
+        switch (choice)
+        {
+        case 0:
+            loop = false;
+            break;
+        case 1:
+            pFunc = getVals;
+            break;
+        case 2:
+            pFunc = square;
+            break;
+        case 3:
+            pFunc = cube;
+            break;
+        case 4:
+            pFunc = swap;
+            break;
+        }
+
+        if(!loop)
+            break;
+
+        printVals(pFunc, val1, val2);
+
+    }
+
+    return 0;
+}
+
+void square(int &rVal1, int &rVal2)
+{
+    rVal1 *= rVal1;
+    rVal2 *= rVal2;
+
+    return;
+}
+
+void cube(int &rVal1, int &rVal2)
+{
+    int temp1 = rVal1;
+    rVal1 *= rVal1;
+    rVal1 *= temp1;
+
+    int temp2 = rVal2;
+    rVal2 *= rVal2;
+    rVal2 *= temp2;
+
+    return;
+}
+
+void swap(int &rVal1, int &rVal2)
+{
+    int temp1 = rVal1;
+    int temp2 = rVal2;
+
+    rVal2 = temp1;
+    rVal1 = temp2;
+
+    return;
+}
+
+void getVals(int &rVal1, int &rVal2)
+{
+    std::cout << "Value 1: ";
+    std::cin >> rVal1;
+
+    std::cout << "Value 2: ";
+    std::cin >> rVal2;
+
+    return;
+}
+
+void printVals(void (*pFunc) (int&, int &), int &val1, int &val2)
+{
+    std::cout << "Value 1: " << val1 << " , Value 2: " << val2 << "." << std::endl;
+    pFunc(val1, val2);
+    std::cout << "Value 1: " << val1 << " , Value 2: " << val2 << "." << std::endl;
+
+    return;
+}
