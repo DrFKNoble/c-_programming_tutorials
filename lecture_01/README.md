@@ -80,13 +80,13 @@ int main()
 
 After you save the file, it needs to be compiled and linked.
 
-If you are using GCC, the following command accomplishes both tasks:
+<!-- If you are using GCC, the following command accomplishes both tasks:
 
 ```Console
 g++ listing1_1.cpp -o listing1_1.exe
 ```
 
-This command tells the G++ compiler to compile named listing1_1.cpp and link it into an executable program named listing1_1.exe. If it compiles successfully, no message is displayed. The compiler says something only if there's a problem, displaying an error message and the line (or lines) where the error appeared.
+This command tells the G++ compiler to compile named listing1_1.cpp and link it into an executable program named listing1_1.exe. If it compiles successfully, no message is displayed. The compiler says something only if there's a problem, displaying an error message and the line (or lines) where the error appeared. -->
 
 If you are using CMake, launch your text editor and create a new file. Type the text in Listing 1.2 into the editor. When done, save the file as `CMakeLists.txt`. Save it in the same directory as `listing1_1.cpp`.
 
