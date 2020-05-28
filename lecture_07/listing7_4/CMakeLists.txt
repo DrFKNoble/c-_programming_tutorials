@@ -7,9 +7,9 @@ project(listing)
 set(CMAKE_CXX_STANDARD 17)
 
 # Add executable target to be built
-add_executable(listing listing.cpp)
+add_executable(listing7_4 listing7_4.cpp)
 
 # Install built executable to "bin" sub-directory
-install(TARGETS listing DESTINATION ${PROJECT_SOURCE_DIR}/bin)
+install(TARGETS listing7_4 DESTINATION ${PROJECT_SOURCE_DIR}/bin)
 
 
