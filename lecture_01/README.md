@@ -88,6 +88,34 @@ g++ listing1_1.cpp -o listing1_1.exe
 
 This command tells the G++ compiler to compile named listing1_1.cpp and link it into an executable program named listing1_1.exe. If it compiles successfully, no message is displayed. The compiler says something only if there's a problem, displaying an error message and the line (or lines) where the error appeared.
 
+If you are using CMake, launch your text editor and create a new file. Type the text in Listing 1.2 into the editor. When done, save the file as `CMakeLists.txt`. Save it in the same directory as `listing1_1.cpp`.
+
+### Listing 1.2 The full text of `CMakeLists.txt`
+```
+cmake_minimum_required(VERSION 3.17.2)
+
+project(listing1_1)
+
+set(CMAKE_CXX_STANDARD 17)
+
+add_executable(listing1_1 listing1_1.cpp)
+
+install(TARGETS listing DESTINATION ${PROJECT_SOURCE_DIR}/bin)
+```
+
+These commands tell CMake to create a project named `listing1_1`; that it should be compiled using the C++17 standard; that the executable is named `listing1_1.exe`; and that it should be installed into the `bin` sub-directory. 
+
+Next, type the following commands into the terminal:
+
+```console
+mkdir build
+cd build
+cmake ..
+cmake --build . --target install
+```
+
+These will build the project and install the built executable into the project's `bin` sub-directory.
+
 If you get a compiler error, recheck the program line by line. Make sure that all the punctuation is included, particularly the semicolons at the end of lines.
 
 After fixing any potential problems, try the compiler again.
