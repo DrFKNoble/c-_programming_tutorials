@@ -7,11 +7,11 @@ project(listing)
 set(CMAKE_CXX_STANDARD 17)
 
 # Add executable target to be built
-add_executable(listing listing.cpp)
+add_executable(listing9_2 listing9_2.cpp)
 
-target_include_directories(listing PUBLIC "${PROJECT_SOURCE_DIR}/")                         
+target_include_directories(listing9_2 PUBLIC "${PROJECT_SOURCE_DIR}/")                         
 
 # Install built executable to "bin" sub-directory
-install(TARGETS listing DESTINATION ${PROJECT_SOURCE_DIR}/bin)
+install(TARGETS listing9_2 DESTINATION ${PROJECT_SOURCE_DIR}/bin)
 
 
