@@ -1,6 +1,6 @@
 # Lecture 16: Extending Classes with Inheritance
 
-## What You'll Learn in This Lecture:
+## What You'll Learn in this Lecture:
 
 * What inheritance is
 * How to derive one class from another

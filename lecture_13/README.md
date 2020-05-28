@@ -1,6 +1,6 @@
 # Lecture 13: Advanced References and Pointers
 
-## What You'll Learn in This Lecture
+## What You'll Learn in this Lecture:
 
 * How to use pass by reference to make your programs more efficient
 * How to decide when to use references and when to use pointers

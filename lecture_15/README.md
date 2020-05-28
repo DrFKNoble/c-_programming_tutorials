@@ -1,6 +1,6 @@
 # Lecture 15: Using Operator Overloading
 
-## What You'll Learn in This Lecture:
+## What You'll Learn in this Lecture:
 
 * How to overload operators in member functions
 * How to overload the assignment operator to manage memory

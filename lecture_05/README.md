@@ -1,6 +1,6 @@
 # Lecture 5: Calling Functions
 
-## What You'll Learn in This Lecture
+## What You'll Learn in this Lecture:
 
 * What a function does
 * How to declare and define a function

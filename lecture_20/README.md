@@ -1,6 +1,6 @@
 # Lecture 20: Using Special Classes, Functions, and Pointers
 
-## What You'll Learn in This Hour
+## What You'll Learn in this Lecture:
 
 * What static member variables and static member functions are
 * How to use static member variables and static member functions

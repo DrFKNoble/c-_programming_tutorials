@@ -1,6 +1,6 @@
 # Lecture 18
 
-## What You'll Learn in This Hour
+## What You'll Learn in this Lecture:
 
 * What casting down is and why you might want to do it
 * What abstract data types are

@@ -1,6 +1,6 @@
 # Lecture 7: Storing Information in Arrays and Strings
 
-## What You'll Learn in This Lecture
+## What You'll Learn in this Lecture:
 
 * How to store related data in arrays
 * How to declare arrays

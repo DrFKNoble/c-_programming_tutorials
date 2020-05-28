@@ -1,6 +1,6 @@
 # Lecture 1: Writing Your First Program
 
-## What You'll Learn in This Lecture:
+## What You'll Learn in this Lecture:
 
 1. How and why C++ was invented
 2. How to find a C++ compiler

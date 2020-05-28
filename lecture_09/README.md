@@ -1,6 +1,6 @@
 # Lecture 9: Advanced Classes
 
-## What You'll Learn in This Lecture
+## What You'll Learn in this Lecture:
 
 * What constant member functions are
 * How to separate the class interface from its implementation

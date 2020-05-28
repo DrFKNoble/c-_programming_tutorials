@@ -1,6 +1,6 @@
 # Lecture 19: Storing Information in Linked Lists
 
-## What You'll Learn in This Lecture
+## What You'll Learn in this Lecture:
 
 * What a linked list is
 * How to create a linked list

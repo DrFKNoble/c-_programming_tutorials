@@ -1,6 +1,6 @@
 # Lecture 12: Creating References
 
-## What You'll Learn in This Lecture
+## What You'll Learn in this Lecture:
 
 * What references are
 * How references differ from pointers

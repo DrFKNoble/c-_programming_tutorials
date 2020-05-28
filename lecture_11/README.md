@@ -1,6 +1,6 @@
 # Lecture 11: Advanced Pointers
 
-## What You'll Learn in This Lecture
+## What You'll Learn in this Lecture:
 
 * How to create objects on the heap
 * How to use pointers effectively

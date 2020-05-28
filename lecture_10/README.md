@@ -1,6 +1,6 @@
 # Lecture 10: Creating Points
 
-## What You'll Learn in This Lecture
+## What You'll Learn in this Lecture:
 
 * What pointers are
 * How to declare and use pointers

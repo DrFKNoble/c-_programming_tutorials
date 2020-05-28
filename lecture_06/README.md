@@ -1,6 +1,6 @@
 # Lecture 6: Controlling the Flow of a Program
 
-## What You'll Learn in This Lecture
+## What You'll Learn in this Lecture:
 
 * What loops are and how they are used
 * How to build various loops

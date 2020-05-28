@@ -1,6 +1,6 @@
 # Lecture 17: Using Polymorphism and Derived Classes
 
-## What You'll Learn in This Lecture
+## What You'll Learn in this Lecture:
 
 * What virtual member functions are
 * How to use virtual destructors and copy constructors

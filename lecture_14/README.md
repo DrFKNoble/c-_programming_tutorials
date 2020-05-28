@@ -1,6 +1,6 @@
 # Lecture 14: Advanced Functions
 
-## What You'll Learn in This Lecture
+## What You'll Learn in this Lecture:
 
 * How to overload member functions
 * How to support classes with dynamically allocated variables
@@ -397,7 +397,7 @@ On lines 80-81, `main()` displays a message and creates a `Bike` object named `m
 
 On line 83, `myBike`'s `pedal()` member function is called to increment its `speed` value. It is now equal to 1.
 
-On lines 85-86, `main()` displays a message and creates a second `Bike` object named `yourBike`. Here, `myBike` is passed as an argument to `yourBike`'s constructor. `yourBike`'s copy constructor then performs a deep copy, copying the value of `myBike`'s `speed`, which is stored on the heap, into new memory. This way, if `myBike`'s `speed` value changes, it won’t affect `yourBike`'s `speed` value.
+On lines 85-86, `main()` displays a message and creates a second `Bike` object named `yourBike`. Here, `myBike` is passed as an argument to `yourBike`'s constructor. `yourBike`'s copy constructor then performs a deep copy, copying the value of `myBike`'s `speed`, which is stored on the heap, into new memory. This way, if `myBike`'s `speed` value changes, it wonï¿½t affect `yourBike`'s `speed` value.
 
 On lines 91-92, `main()` displays a message and `myBike`'s `setSpeed()` member function is called. `myBike`'s `speed` value is now equal to 5.
 

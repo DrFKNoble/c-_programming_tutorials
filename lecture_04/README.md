@@ -1,6 +1,6 @@
 ## Lecture 4: Using Expressions, Statements, and Operators
 
-## What You'll Learn in This Lecture
+## What You'll Learn in this Lecture:
 
 * How to write statements
 * How to create expressions

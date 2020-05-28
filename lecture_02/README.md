@@ -1,6 +1,6 @@
 # Lecture 2: Organising the Parts of a Program
 
-## What You'll Lean in This Lecture
+## What You'll Learn in this Lecture:
 
 * Why to use C++
 * How C++ programs are organised

@@ -1,6 +1,6 @@
 ## Lecture 3: Creating Variables and Constants
 
-## What You'll Learn in This Hour
+## What You'll Learn in this Lecture:
 
 * How to create variables and constants
 * How to assign values to variables and change those values

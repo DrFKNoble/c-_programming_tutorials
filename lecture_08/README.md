@@ -1,6 +1,6 @@
 # Lecture 8: Creating Basic Classes
 
-## What You'll Learn in This Lecture
+## What You'll Learn in this Lecture:
 
 * What types are
 * What classes and objects are
