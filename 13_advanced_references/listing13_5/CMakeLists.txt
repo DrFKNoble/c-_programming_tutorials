@@ -1,15 +1,19 @@
-cmake_minimum_required(VERSION 3.17.2)
+cmake_minimum_required(VERSION 3.5)
 
-# Set the project name
-project(listing)
+project(listing13_5 LANGUAGES CXX)
 
-# Specify the C++ standard
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-# Add executable target to be built
-add_executable(listing13_5 listing13_5.cpp)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
 
-# Install built executable to "bin" sub-directory
-install(TARGETS listing13_5 DESTINATION ${PROJECT_SOURCE_DIR}/bin)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+find_package(Qt5Core)
 
+add_executable(listing13_5
+  main.cpp
+)
+target_link_libraries(listing13_5 Qt5::Core)
