@@ -94,7 +94,7 @@ If you are using CMake, launch your text editor and create a new file. Type the 
 ```
 cmake_minimum_required(VERSION 3.17.2)
 
-project(listing1_1)
+project(listing)
 
 set(CMAKE_CXX_STANDARD 17)
 
