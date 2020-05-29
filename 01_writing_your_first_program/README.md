@@ -38,7 +38,7 @@ Before you create a C++ program, it's important to understand the process.
 A C++ program begins as source code, which is just plain text typed into a text editor.
 
 > **Note**
-There are several free text editors, e.g. Visual Studio Code. It includes features you'll come to appreciate, such as code highlighting, which displays different elements of the language in different colours. You can download it from: https://code.visualstudio.com/. 
+There are several free text editors, e.g. Qt. It includes features you'll come to appreciate, such as code highlighting, which displays different elements of the language in different colours. You can download it from: [http://qt.io/](http://qt.io/). 
 
 C++ files can be given filenames ending with the following extensions: `.cpp`, `.cxx`, `.cp`, `.cc`, or `.c`. Here, we use the default extension, `.cpp`.
 
@@ -59,68 +59,28 @@ The following are the steps to create a C++ program:
 
 Now that you've been introduced to the process, it's time to create a C++ program.
 
-Launch your text editor and create a new file. The first program that you create will display text on the screen.
+Launch Qt. Create a new Qt Console Application. Name it listing1_1 and create it in a directory of your choosing. Define the build system as CMake. Do not create a translation file. Select an appropriate kit. Do not add the project as a sub-project to another project or add to version control.
 
-Type the text of Listing 1.1. into the editor. Make sure to enter the punctuation on each line properly.
+Open main.cpp in Qt. Type the text of Listing 1.1. into the editor. Make sure to enter the punctuation on each line properly.
 
-When done, save the file as `listing1_1.cpp`.
-
-### Listing 1.1 The Full Text of `listing_1_1.cpp`
+### Listing 1.1 The Full Text of listing1_1's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
-    std::cout << "Hello World!" << std::endl; 
-    
-    return 0;
+    QCoreApplication a(argc, argv);
 
+    std::cout << "Hello World!" << std::endl;
+
+    return a.exec();
 }
 ```
 
 After you save the file, it needs to be compiled and linked.
 
-<!-- If you are using GCC, the following command accomplishes both tasks:
-
-```Console
-g++ listing1_1.cpp -o listing1_1.exe
-```
-
-This command tells the G++ compiler to compile named listing1_1.cpp and link it into an executable program named listing1_1.exe. If it compiles successfully, no message is displayed. The compiler says something only if there's a problem, displaying an error message and the line (or lines) where the error appeared. -->
-
-If you are using CMake, launch your text editor and create a new file. Type the text in Listing 1.2 into the editor. When done, save the file as `CMakeLists.txt`. Save it in the same directory as `listing1_1.cpp`.
-
-### Listing 1.2 The full text of `CMakeLists.txt`
-```
-cmake_minimum_required(VERSION 3.17.2)
-
-project(listing)
-
-set(CMAKE_CXX_STANDARD 17)
-
-add_executable(listing1_1 listing1_1.cpp)
-
-install(TARGETS listing DESTINATION ${PROJECT_SOURCE_DIR}/bin)
-```
-
-These commands tell CMake to create a project named `listing1_1`; that it should be compiled using the C++17 standard; that the executable is named `listing1_1.exe`; and that it should be installed into the `bin` sub-directory. 
-
-Next, type the following commands into the terminal:
-
-```console
-mkdir build
-cd build
-cmake ..
-cmake --build . --target install
-```
-
-These will build the project and install the built executable into the project's `bin` sub-directory.
-
-If you get a compiler error, recheck the program line by line. Make sure that all the punctuation is included, particularly the semicolons at the end of lines.
-
-After fixing any potential problems, try the compiler again.
-
-When the program has been compiled properly, you can run `listing1_1.exe` like any other program on your computer. Type its name, `listing1_1.exe`, as a command and press Enter.
+In Qt, you can build your program by left clicking on the Build menu and then left clicking on the Build Project option; alternatively, you can use the <kbd>CTRL + B</kbd> shortcut. You can run your program by left clicking on the Build menu and then left clicking on the Run option; alternatively, you can use the <kbd>CTRL + R</kbd> shortcut.
 
 The listing1_1.exe program displays the following output:
 
