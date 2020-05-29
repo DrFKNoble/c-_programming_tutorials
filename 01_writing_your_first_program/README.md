@@ -27,7 +27,7 @@ A compiler turns C++ programs into a form that can be run. The compiler translat
 
 There are several popular environments for C++ programming, e.g. the GNU Compiler Collection (GCC), Microsoft Visual Studio, Microsoft Visual Studio Code, Eclipse, Code::Blocks, and Qt Creator.
 
-If you don't have a C++ compiler, you can use GCC. Download MinGW and install it on your computer.
+If you don't have a C++ compiler, you can use Qt Creator. Download Qt Creator from [http://qt.io/](http://qt.io/) and install it on your computer.
 
 Microsoft Visual Studio also supports C++ programming, and a free version called Visual Studio Community is available from: https://visualstudio.microsoft.com/. 
 
@@ -36,9 +36,6 @@ Microsoft Visual Studio also supports C++ programming, and a free version called
 Before you create a C++ program, it's important to understand the process.
 
 A C++ program begins as source code, which is just plain text typed into a text editor.
-
-> **Note**
-There are several free text editors, e.g. Qt. It includes features you'll come to appreciate, such as code highlighting, which displays different elements of the language in different colours. You can download it from: [http://qt.io/](http://qt.io/). 
 
 C++ files can be given filenames ending with the following extensions: `.cpp`, `.cxx`, `.cp`, `.cc`, or `.c`. Here, we use the default extension, `.cpp`.
 
