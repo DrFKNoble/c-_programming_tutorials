@@ -90,14 +90,18 @@ C++ supports the idea that different objects do the right thing through a langua
 
 The following source code contains the basic framework of a C++ program:
  
-### Listing 2.1 The Full Text of `listing_1_1.cpp`.
+### Listing 2.1 The Full Text of listing 1.1's `main.cpp`.
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     std::cout << "Hello World!" << std::endl;
-    return 0;
+
+    return a.exec();
 }
 ```
 The program produces a single line of output:
@@ -106,13 +110,13 @@ The program produces a single line of output:
 Hello World!
 ```
 
-On line 1 of Listing 2.1, a file named `iostream` is included in the source code. This line causes the compiler to act as if the entire contents of that file were typed at the place in `listing1_1.cpp`.
+On line 2 of Listing 2.1, a file named `iostream` is included in the source code. This line causes the compiler to act as if the entire contents of that file were typed at that place in `listing1_1.cpp`.
 
 ### Preprocessor Directives
 
 A C++ compiler's first action is to call another tool called the preprocessor that examines the source code. This happens automatically each time the compiler runs.
 
-The first character in line 1 is the # symbol, which indicates that the line is a command to be handled by the preprocessor. These commands are called preprocessor directives. The preprocessor's job is to read source code looking for directives and modify the code according to the indicated directive. The modified code is fed to the compiler.
+The first character in line 2 is the # symbol, which indicates that the line is a command to be handled by the preprocessor. These commands are called preprocessor directives. The preprocessor's job is to read source code looking for directives and modify the code according to the indicated directive. The modified code is fed to the compiler.
 
 The preprocessor serves as an editor of code right before it is compiled. Each directive is a command telling that editor what to do.
 
@@ -120,15 +124,15 @@ The `#include` directive tells the preprocessor to include the entire contents o
 
 The `<` and `>` brackets around the filename `iostream` tell the preprocessor to look in a standard set of locations for the file. Because of the brackets, the processor looks for the `iostream` file in the folder that holds header files for the compiler. These files also are called include files because they are included in a program's source code.
 
-The full contents of `iostream` are included in place of line 1.
+The full contents of `iostream` are included in place of line 2.
 
 > **Note**
 Header files traditionally ended with the filename extension .h and were also called h files, so that used a directive of the form `include <iostream.h>`.  
 Modern compilers don't require that extension, but if you refer to files using it, the directive might still work for compatibility reasons. Here, we omit the extraneous .h in include files.
 
-The contents of the file `iostream` are used by the cout command in line 5, which displays information to the screen.
+The contents of the file `iostream` are used by the cout command in line 8, which displays information to the screen.
 
-There are no other directives in the source code, so the compiler handles the rest of `listing1_1.cpp`.
+There are no other directives in the source code, so the compiler handles the rest of listing 1.1's `main.cpp`.
 
 ## Source Code Line by Line
 
@@ -140,15 +144,15 @@ All functions in C++ must return a value of some kind after their work is done. 
 
 Functions, like other blocks of code in a C++ program, are grouped together using the brace marks `{` and `}`. All functions begin with an opening brace `{` and end with a closing brace `}`.
 
-The braces for the `main()` function of `listing1_1.cpp` are on line 4 and 7, respectively. Everything between the opening and closing braces is part of the function.
+The braces for the `main()` function of `listing1_1.cpp` are on line 5 and 11, respectively. Everything between the opening and closing braces is part of the function.
 
-In line 5, the cout command is used to display a message on the screen. The object has the designation `std::` in front of it, which tells the compiler to use the standard C++ input/output library.
+In line 8, the cout command is used to display a message on the screen. The object has the designation `std::` in front of it, which tells the compiler to use the standard C++ input/output library.
 
-The reference to `std::cout` in line 5 is followed by `<<`, which is called the output redirection operator. Operators are characters in lines of code that perform an action in response to some kind of information. The `<<` operator displays the information that follows it on the line. In line 5, the text `"Hello World!"` is enclosed with double quotes. This displays a string of characters on the screen followed by a newline character that advances the program's output to the beginning of the next line.
+The reference to `std::cout` in line 8 is followed by `<<`, which is called the output redirection operator. Operators are characters in lines of code that perform an action in response to some kind of information. The `<<` operator displays the information that follows it on the line. In line 8, the text `"Hello World!"` is enclosed with double quotes. This displays a string of characters on the screen followed by a newline character that advances the program's output to the beginning of the next line.
 
-On line 6, the program returns the integer value 0. This value is received by the operating system after the program finishes running. Typically, a program returns the value 0 to indicate that it ran successfully. Any other number indicates a failure of some kind.
+On line 10, the program returns a value indicating if the program ran succesfully. This value is received by the operating system after the program finishes running. Typically, a program returns the value 0 to indicate that it ran successfully. Any other number indicates a failure of some kind.
 
-The closing brace on line 7 ends the `main()` function, which ends the program. All your programs use the same basic framework demonstrated by this program.
+The closing brace on line 11 ends the `main()` function, which ends the program. All your programs use the same basic framework demonstrated by this program.
 
 ## Comments
 
@@ -230,6 +234,7 @@ Listing 2.2 demonstrates how to create a function that takes two integer argumen
 
 ### Listing 2.2 The Full Text of `listing_2_1.cpp`
 ```C++ 
+#include <QCoreApplication>
 #include <iostream>
 
 int add(int x, int y)
@@ -239,14 +244,17 @@ int add(int x, int y)
     return (x + y);
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     /*
         This program calls add(), adding two numbers together.
     */
     std::cout << "What is 1 + 2 ?" << std::endl;
     std::cout << add(1, 2) << std::endl;
-    return 0;
+
+    return a.exec();
 }
 ```
 
@@ -258,11 +266,11 @@ Adding...
 3
 ```
 
-Listing 2.1's program includes a single-line comment on line 5 and a multi-line comment starting on line 12.
+Listing 2.1's program includes a single-line comment on line 6 and a multi-line comment starting on line 15.
 
 The `add()` function takes two integer parameters named x and y and adds them together in a return statement.
 
-The program's execution begins in the `main()` function. The first statement in line 15 uses the object std::cout and the redirection operator `<<` to display the text `"What is 1 + 2?"` followed by a new line.
+The program's execution begins in the `main()` function. The statement in line 18 uses the object std::cout and the redirection operator `<<` to display the text `"What is 1 + 2?"` followed by a new line.
 
 The next line calls the `add()` function with the arguments 1 and 2. The execution of the program branches off to the `add()` function, which displays `"Adding..."`. 
 
