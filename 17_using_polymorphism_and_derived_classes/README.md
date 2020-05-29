@@ -38,8 +38,9 @@ virtual void speak() const
 
 Listing 18.1's program demonstrates how to use virtual functions.
 
-### Listing 17.1 The Full Text of `listing_17_1.cpp`
+### Listing 17.1 The Full Text of listing17_1's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Mammal
@@ -123,14 +124,16 @@ void Dog::speak() const
     return;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     Mammal *pDog = new Dog;
 
     pDog->move();
     pDog->speak();
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -153,15 +156,16 @@ Here, a `Mammal` pointer called a `Dog` function.
 
 If you have an array of pointers to a `Mammal`, each of which points to a derived class of `Mammal`, you can call each in turn and see that the correct function is called. Listing 18.2's program demonstrates this idea.
 
-### Listing 17.2 The Full Text of `listing_17_2.cpp`
+### Listing 17.2 The Full Text of listing17_2's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Mammal
 {
 public:
-    Mammal() : age(1){ }
-    ~Mammal(){ }
+    Mammal() : age(1) {}
+    ~Mammal() {}
 
     virtual void speak() const;
 
@@ -179,8 +183,8 @@ void Mammal::speak() const
 class Dog : public Mammal
 {
 public:
-    Dog(){ }
-    ~Dog(){ }
+    Dog() {}
+    ~Dog() {}
 
     void speak() const;
 };
@@ -195,8 +199,8 @@ void Dog::speak() const
 class Cat : public Mammal
 {
 public:
-    Cat(){ }
-    ~Cat(){ }
+    Cat() {}
+    ~Cat() {}
 
     void speak() const;
 };
@@ -208,8 +212,10 @@ void Cat::speak() const
     return;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     Mammal *array[2];
     Mammal *ptr;
     int choice, i;
@@ -240,7 +246,7 @@ int main()
         array[i]->speak();
     }
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -285,15 +291,16 @@ Note that the virtual function magic only works on pointers and references. Pass
 
 Listing 18.3's program demonstrates what happens when passing an object by value, with a pointer, and with a reference.
 
-### Listing 17.3 The Full Text of `listing_17_3.cpp`
+### Listing 17.3 The Full Text of listing17_3's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Mammal
 {
 public:
-    Mammal() : age(1){ }
-    ~Mammal(){ }
+    Mammal() : age(1) {}
+    ~Mammal() {}
 
     virtual void speak() const;
 
@@ -311,8 +318,8 @@ void Mammal::speak() const
 class Dog : public Mammal
 {
 public:
-    Dog(){ }
-    ~Dog(){ }
+    Dog() {}
+    ~Dog() {}
 
     void speak() const;
 };
@@ -327,8 +334,8 @@ void Dog::speak() const
 class Cat : public Mammal
 {
 public:
-    Cat(){ }
-    ~Cat(){ }
+    Cat() {}
+    ~Cat() {}
 
     void speak() const;
 };
@@ -344,39 +351,41 @@ void valueFunction(Mammal);
 void ptrFunction(Mammal *);
 void refFunction(Mammal &);
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     Mammal *ptr = nullptr;
-    bool loop = true;
+       bool loop = true;
 
-    while (loop)
-    {
-        int choice = 0;
+       while (loop)
+       {
+           int choice = 0;
 
-        std::cout << "(1) Dog, (2) Cat, (0) Quit: ";
-        std::cin >> choice;
+           std::cout << "(1) Dog, (2) Cat, (0) Quit: ";
+           std::cin >> choice;
 
-        switch (choice)
-        {
-        case 0:
-            loop = false;
-            break;
-        case 1:
-            ptr = new Dog;
-            break;
-        case 2:
-            ptr = new Cat;
-            break;
-        default:
-            break;
-        }
+           switch (choice)
+           {
+           case 0:
+               loop = false;
+               break;
+           case 1:
+               ptr = new Dog;
+               break;
+           case 2:
+               ptr = new Cat;
+               break;
+           default:
+               break;
+           }
 
-        ptrFunction(ptr);
-        refFunction(*ptr);
-        valueFunction(*ptr);
-    }
+           ptrFunction(ptr);
+           refFunction(*ptr);
+           valueFunction(*ptr);
+       }
 
-    return 0;
+    return a.exec();
 }
 
 void valueFunction(Mammal vMammal)
@@ -440,8 +449,9 @@ Because each derived class overrides the clone function, a copy of the derived c
 
 Listing 18.3's program demonstrates how a clone member function can be used.
 
-### Listing 17.4 The Full Text of `listing_17_4.cpp`
+### Listing 17.4 The Full Text of listing17_4's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Mammal
@@ -585,8 +595,10 @@ void Cat::speak() const
     return;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     Mammal *array[3];
     Mammal *ptr;
 
@@ -628,7 +640,7 @@ int main()
         otherArray[i]->speak();
     }
 
-    return 0;
+    return a.exec();
 }
 ```
 

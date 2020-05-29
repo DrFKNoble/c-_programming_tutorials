@@ -12,8 +12,9 @@ Previously, we saw how derived objects were treated polymorphically with their b
 
 Listing 18.1's program demonstrates this idea.
 
-### Listing 18.1 The Full Text of `listing_18_1.cpp`
+### Listing 18.1 The Full Text of listing18_1's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Mammal
@@ -36,8 +37,9 @@ public:
     void speak() const { std::cout << "Woof." << std::endl; }
 };
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
     Mammal *pDog = new Dog;
 
@@ -46,7 +48,7 @@ int main()
     delete pDog;
     pDog = nullptr;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -94,8 +96,9 @@ It works as follows: if you have a pointer to a base class, such as `Mammal`, an
 
 Listing 18.2's program demonstrates how the `dynamic_cast` operator can be used.
 
-### Listing 18.2 The Full Text of `listing_18_2.cpp`
+### Listing 18.2 The Full Text of listing18_2's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Mammal
@@ -129,8 +132,10 @@ public:
     void purr() const { std::cout << "Purrr." << std::endl; }
 };
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     Mammal *zoo[3];
     Mammal *pMammal;
     int choice, i;
@@ -174,8 +179,8 @@ int main()
 
         std::cout << std::endl;
     }
-  
-    return 0;
+
+    return a.exec();
 }
 ```
 
@@ -215,8 +220,9 @@ Often, you will create a hierarchy of classes together. For example, you might c
 
 Listing 18.3's program provides a bare-bones example of how the `Shape`, `Rectangle`, and `Circle` classes can be used.
 
-### Listing 18.3 The Full Text of `listing_18_3.cpp`
+### Listing 18.3 The Full Text of listing18_3's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Shape
@@ -224,7 +230,7 @@ class Shape
 public:
     Shape() {}
     virtual ~Shape() {}
-    
+
     virtual float getArea() const { return -1; }
     virtual void draw() const {}
 };
@@ -234,7 +240,7 @@ class Circle : public Shape
 public:
     Circle(int newRadius) : radius(newRadius) {}
     ~Circle() {}
-    
+
     float getArea() { return ((22 / 7) * radius * radius); }
     void draw() const { std::cout << "Circle draw()." << std::endl; }
 
@@ -245,9 +251,9 @@ private:
 class Rectangle : public Shape
 {
 public:
-    Rectangle(int newWidth, int newLength) : width(newWidth), length(newLength) { }
-    ~Rectangle() { }
-    
+    Rectangle(int newWidth, int newLength) : width(newWidth), length(newLength) {}
+    ~Rectangle() {}
+
     float getArea() { return (width * length); }
     void draw() const { std::cout << "Rectangle draw()." << std::endl; }
 
@@ -256,8 +262,10 @@ private:
     int length;
 };
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     bool loop = true;
     int choice = 0;
     Shape *pShape = nullptr;
@@ -267,7 +275,7 @@ int main()
         std::cout << "(1) Circle, (2) Rectangle, (0) Quit: ";
         std::cin >> choice;
 
-        switch(choice)
+        switch (choice)
         {
         case 0:
             loop = false;
@@ -283,20 +291,19 @@ int main()
             return 1;
         }
 
-        if(!loop)
+        if (!loop)
             break;
-      
+
         pShape->draw();
-        
+
         delete pShape;
         pShape = nullptr;
-     
+
         std::cout << std::endl;
 
     } while (loop);
-    
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -361,8 +368,9 @@ It is possible, however, to provide an implementation to a pure virtual function
 
 Listing 18.4's program defines `Shape` as an ADT and includes an implementation for the pure virtual function `draw()`. The `Circle` and `Rectangle` classes override the `draw()` function, calling the base class's implementation of the function.
 
-### Listing 18.4 The Full Text of `listing_18_4.cpp`
+### Listing 18.4 The Full Text of listing18_4's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Shape
@@ -425,8 +433,10 @@ void Rectangle::draw()
     return;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     bool loop = true;
     int choice = 0;
     Shape *pShape = nullptr;
@@ -464,7 +474,7 @@ int main()
 
     } while (loop);
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -498,8 +508,9 @@ What you say, as a class designer, is that no `Animal` or `Mammal` objects can b
 
 Listing 18.5's program demonstrates this technique.
 
-### Listing 18.5 The Full Text of `listing_18_5.cpp`
+### Listing 18.5 The Full Text of listing18_5's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 enum COLOR
@@ -540,7 +551,7 @@ class Fish : public Animal
 {
 public:
     Fish(int newAge) : Animal(newAge) { std::cout << "Fish constructor()." << std::endl; }
-    ~Fish() { std::cout << "Fish destructor()." << std::endl; }
+    virtual ~Fish() { std::cout << "Fish destructor()." << std::endl; }
 
     virtual void eat() const { std::cout << "Fish eat()." << std::endl; }
     virtual void sleep() const { std::cout << "Fish sleep()." << std::endl; }
@@ -562,11 +573,13 @@ public:
     virtual void reproduce() const { std::cout << "Dog reproduce()." << std::endl; }
 
 private:
-    COLOR;
+    COLOR color;
 };
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     bool loop = true;
     int choice = 0;
     Animal *pAnimal = nullptr;
@@ -607,7 +620,7 @@ int main()
 
     } while (loop);
 
-    return 0;
+    return a.exec();
 }
 ```
 

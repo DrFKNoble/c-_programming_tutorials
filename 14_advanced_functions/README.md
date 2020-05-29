@@ -13,8 +13,9 @@ Like regular functions, a class's member functions can also be overloaded.
 
 Listing 14.1's program demonstrates how a class's member functions can be overloaded.
 
-### Listing 14.1 The Full Text of `listing_14_1.cpp`
+### Listing 14.1 The Full Text of listing14_1's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Drawer
@@ -68,8 +69,9 @@ void Drawer::drawShape(int newRows, int newCols) const
     return;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
     Drawer rect(3, 3);
 
@@ -81,7 +83,7 @@ int main()
     std::cout << "rect.drawShape(5, 5)" << std::endl;
     rect.drawShape(5, 5);
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -117,8 +119,9 @@ Like regular functions, a class's member functions can have default values.
 
 Listing 14.2's program demonstrates how a class's member function's parameters can have default values.
 
-### Listing 14.2 The Full Text of `listing_14_2.cpp`
+### Listing 14.2 The Full Text of listing14_2's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Drawer
@@ -171,7 +174,7 @@ void Drawer::drawShape(int newRows, int newCols, bool useCurrentValue) const
         tempRows = newRows;
         tempCols = newCols;
     }
-    
+
     for (int i = 0; i < tempRows; i++)
     {
         for (int j = 0; j < tempCols; j++)
@@ -187,8 +190,10 @@ void Drawer::drawShape(int newRows, int newCols, bool useCurrentValue) const
     return;
 }
 
-int main()
-{   
+int main(int argc, char *argv[])
+{
+    QCoreApplication a(argc, argv);
+
     Drawer rect(3, 3);
 
     std::cout << "rect.drawShape(0, 0)" << std::endl;
@@ -199,7 +204,7 @@ int main()
     std::cout << "rect.drawShape(5, 5, false)" << std::endl;
     rect.drawShape(5, 5, false);
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -274,8 +279,9 @@ A shallow copy copies the exact values of one object's member variables into ano
 
 Listing 14.3 demonstrates how to perform a deep copy using a copy constructor.
 
-### Listing 14.3 The Full Text of `listing_14_3.cpp`
+### Listing 14.3 The Full Text of listing14_3's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Bike
@@ -335,7 +341,7 @@ void Bike::pedal()
 {
     *speed += 1;
 
-    std::cout << "Pedalling. Speed is now " << getSpeed() << " m/s" << std::endl;
+    std::cout << "Pedaling. Speed is now " << getSpeed() << " m/s" << std::endl;
 
     return;
 }
@@ -352,8 +358,10 @@ void Bike::brake()
     return;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
 
     std::cout << "Creating myBike" << std::endl;
     Bike myBike;
@@ -372,7 +380,7 @@ int main()
     std::cout << "My bike's speed: " << myBike.getSpeed() << std::endl;
     std::cout << "Your bike's speed: " << yourBike.getSpeed() << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -453,8 +461,9 @@ constexpr int myNewAge = 1 + myAge;
 
 Listing 14.4's program demonstrates how a `constexpr` can be used.
 
-### Listing 14.4 The Full Text of `listing_14_4.cpp`
+### Listing 14.4 The Full Text of listing14_4's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 constexpr double getPi()
@@ -462,8 +471,10 @@ constexpr double getPi()
     return (double) 22/7;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     float radius;
 
     std::cout << "Enter the radius of a circle (cm): ";
@@ -472,8 +483,8 @@ int main()
     double area = getPi() * radius * radius;
 
     std::cout << "The area of the circle is: " << area << " cm^2" << std::endl;
-    
-    return 0;
+
+    return a.exec();
 }
 ```
 

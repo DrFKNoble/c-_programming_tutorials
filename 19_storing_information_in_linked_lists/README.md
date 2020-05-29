@@ -48,8 +48,9 @@ Listing 19.1's program demonstrates an object-orientated approach to linked list
 
 The `LinkedList` class uses the `HeadNode`, `TailNode`, and `InternalNode` implementations of the abstract `Node` class. Only `InternalNode` objects hold data.
 
-### Listing 19.1 The Full Text of `listing_19_1.cpp`
+### Listing 19.1 The Full Text of listing19_1's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 enum COMPARE
@@ -195,15 +196,18 @@ void LinkedList::insert(Data *pNewData)
     return;
 }
 
-int main()
+
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     Data *pData;
     int value;
     LinkedList list;
 
     std::cout << "Enter a valid value (1-9), Quit (0)." << std::endl;
     while (true)
-    {   
+    {
         std::cout << "Value: ";
         std::cin >> value;
 
@@ -218,8 +222,7 @@ int main()
 
     list.showAll();
 
-
-    return 0;
+    return a.exec();
 }
 ```
 

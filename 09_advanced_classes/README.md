@@ -85,8 +85,11 @@ Here, the `getSpeed()` definition has changed. Instead of a semicolon after `con
 
 Listing 9.1 and 9.2's program demonstrate how Listing 8.2's program can be divided into separate source and header files.
 
-### Listing 9.1 The Full Text of `listing_9_1.hpp`
+### Listing 9.1 The Full Text of listing9_1's `main.hpp`
 ```C++
+#ifndef MAIN_HPP
+#define MAIN_HPP
+
 #include <iostream>
 
 class Bike
@@ -113,11 +116,15 @@ public:
 private:
     int speed;
 };
+
+#endif // MAIN_HPP
 ```
 
-### Listing 9.2 The Full Text of `listing_9_1.cpp`
+### Listing 9.2 The Full Text of listing9_1's `main.cpp`
 ```C++
-#include "listing_9_1.hpp"
+#include <QCoreApplication>
+
+#include "main.hpp"
 
 Bike::Bike(int initialSpeed)
 {
@@ -131,7 +138,7 @@ Bike::~Bike()
 void Bike::pedal()
 {
     setSpeed(speed + 1);
-    std::cout << "Pedalling. Speed: " << speed << " m/s" << std::endl;
+    std::cout << "Pedaling. Speed: " << speed << " m/s" << std::endl;
 
     return;
 }
@@ -144,8 +151,9 @@ void Bike::brake()
     return;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
     Bike myBike(5);
 
@@ -153,7 +161,7 @@ int main()
     myBike.pedal();
     myBike.brake();
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -167,7 +175,7 @@ Braking. Speed: 6 m/s
 
 Here, Listing 9.1 declares the class's member variables and member functions and Listing 9.2 defines them. The `getSpeed()` and `setSpeed()` member functions defined on lines 8-20 in Listing 9.1 have been define inline.
 
-Line 1 of Listing 9.2 is a preprocessor directive that includes the header file `listing_9_1.hpp` in the source code.
+Line 1 of Listing 9.2 is a preprocessor directive that includes the header file `main.hpp` in the source code.
 
 ## Classes with Other Classes as Member Data
 
@@ -179,8 +187,11 @@ Consider another example. A rectangle is comprised of four lines. Each line is d
 
 Listing 9.3 and 9.4's program demonstrates how a class can be used within another class.
 
-### Listing 9.3 The Full Text of `listing_9_2.hpp`
+### Listing 9.3 The Full Text of listing9_2's `main.hpp`
 ```C++
+#ifndef MAIN_HPP
+#define MAIN_HPP
+
 #include <iostream>
 
 class Point
@@ -217,11 +228,15 @@ private:
     Point topLeft;
     Point bottomRight;
 };
+
+#endif // MAIN_HPP
 ```
 
-### Listing 9.4 The Full Text of `listing_9_2.cpp`
+### Listing 9.4 The Full Text of listing9_2's `main.cpp`
 ```C++
-#include "listing_9_2.hpp"
+#include <QCoreApplication>
+
+#include "main.hpp"
 
 Point::Point()
 {
@@ -327,8 +342,10 @@ void Rectangle::display() const
     return;
 }
 
-int main()
+
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
     Point topLeft(1, 1);
     Point bottomRight(10, 10);
@@ -340,7 +357,7 @@ int main()
 
     rect.display();
 
-    return 0;
+    return a.exec();
 }
 ```
 

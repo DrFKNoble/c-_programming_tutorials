@@ -20,8 +20,9 @@ A static member can be thought of as belonging to the class, rather than to the 
 
 Listing 20.1's program demonstrates how a static variable can be used.
 
-### Listing 20.1 The Full Text of `listing_20_1.cpp`
+### Listing 20.1 The Full Text of listing20_1's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Student
@@ -41,8 +42,10 @@ private:
 
 int Student::howManyStudents = 0;
 
-int main()
+
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
     const int maxStudents = 2;
     Student* course[maxStudents];
@@ -62,7 +65,7 @@ int main()
         std::cout << "Removing Student ";
         std::cout << s->getID() << "." << std::endl;
 
-        delete s; 
+        delete s;
         s = nullptr;
 
     }
@@ -71,7 +74,7 @@ int main()
     std::cout << Student::howManyStudents;
     std::cout << " in the course." << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -107,8 +110,9 @@ Static member functions are like static member variables: they exist not in an o
 
 Listing 20.2's program demonstrates how a static member function can be used.
 
-### Listing 20.2 The Full Text of `listing_20_2.cpp`
+### Listing 20.2 The Full Text of listing20_2's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Student
@@ -129,8 +133,9 @@ private:
 
 int Student::howManyStudents = 0;
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
     const int maxStudents = 2;
     Student* course[maxStudents];
@@ -150,7 +155,7 @@ int main()
         std::cout << "Removing Student ";
         std::cout << s->getID() << "." << std::endl;
 
-        delete s; 
+        delete s;
         s = nullptr;
 
     }
@@ -159,7 +164,7 @@ int main()
     std::cout << Student::getClassSize();
     std::cout << " in the course." << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -365,8 +370,9 @@ Any time you need to use this class, you can include it using the `#include` dir
 
 Listing 20.4's program demonstrates how an outer class can contain an inner class.
 
-### Listing 20.4 The Full Text of `listing_20_4.cpp`
+### Listing 20.4 The Full Text of listing20_4's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include "string.hpp"
 
 class Student
@@ -376,7 +382,7 @@ public:
     Student(const char*, const char*, int);
     Student(const Student&);
     ~Student();
-    
+
     Student& operator=(const Student&);
 
     const String& getFirstName() const { return firstName; }
@@ -408,6 +414,14 @@ ID(newID)
     return;
 }
 
+Student::Student(const Student &rhs) :
+firstName(rhs.getFirstName()),
+lastName(rhs.getLastName()),
+ID(rhs.getID())
+{
+    return;
+}
+
 Student::~Student()
 {
     return;
@@ -425,8 +439,11 @@ Student& Student::operator=(const Student& rhs)
     return *this;
 }
 
-int main()
+
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     Student mrBeasly("Rob", "Beasly", 0);
 
     mrBeasly.setID(1000);
@@ -447,7 +464,7 @@ int main()
     std::cout << "Name: " << mrTropper.getLastName().getString() << ", " << mrTropper.getFirstName().getString() << std::endl;
     std::cout << "ID: " << mrTropper.getID() << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -602,8 +619,9 @@ The declaration of a function pointer always includes the return type and parent
 
 Listing 20.5's program demonstrates how to use function pointers.
 
-### Listing 20.5 The Full Text of `listing_20_5.cpp`
+### Listing 20.5 The Full Text of listing20_5's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 void square(int &, int &);
@@ -612,8 +630,10 @@ void swap(int &, int &);
 void getVals(int &, int &);
 void printVals(int, int);
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     void (*pFunc)(int &, int &);
     bool loop = true;
 
@@ -652,8 +672,9 @@ int main()
         printVals(val1, val2);
     }
 
-    return 0;
+    return a.exec();
 }
+
 
 void square(int &rVal1, int &rVal2)
 {
@@ -752,8 +773,9 @@ Just as you can declare an array of pointers to integers, you can declare an arr
 
 Listing 20.6's program demonstrates how to do this.
 
-### Listing 20.6 The Full Text of `listing_20_6.cpp`
+### Listing 20.6 The Full Text of listing20_6's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 void square(int &, int &);
@@ -762,8 +784,9 @@ void swap(int &, int &);
 void getVals(int &, int &);
 void printVals(int, int);
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
     int val1 = 1, val2 = 2;
     int choice, i;
@@ -803,7 +826,7 @@ int main()
         printVals(val1, val2);
     }
 
-    return 0;
+    return a.exec();
 }
 
 void square(int &rVal1, int &rVal2)
@@ -887,18 +910,20 @@ For example, you might improve Listing 20.6's program by passing the chosen func
 
 Listing 20.7's program demonstrates how to do this.
 
-### Listing 20.7 The Full Text of `listing_20_7.cpp`
+### Listing 20.7 The Full Text of listing20_7's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 void square(int &, int &);
 void cube(int &, int &);
 void swap(int &, int &);
 void getVals(int &, int &);
-void printVals(void (*)(int&, int&), &int, &int);
+void printVals(void (*)(int&, int&), int&, int&);
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
     int val1 = 1, val2 = 2;
     int choice, i;
@@ -937,7 +962,7 @@ int main()
 
     }
 
-    return 0;
+    return a.exec();
 }
 
 void square(int &rVal1, int &rVal2)
@@ -1058,8 +1083,9 @@ Pointers to member functions are used in exactly the same way as pointers to fun
 
 Listing 20.8's program demonstrates how to use pointers to member functions.
 
-### Listing 20.8 The Full Text of `listing_20_8.cpp`
+### Listing 20.8 The Full Text of listing20_8's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Mammal
@@ -1095,8 +1121,9 @@ public:
     void move() const { std::cout << "The cat prowls." << std::endl; }
 };
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
     void (Mammal::*pFunc)() const = 0;
 
@@ -1147,7 +1174,7 @@ int main()
 
     }
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -1177,8 +1204,9 @@ As with pointers to functions, pointers to members functions can be stored in an
 
 Listing 20.9's program demonstrates how to do this.
 
-### Listing 20.9 The Full Text of `listing_20_9.cpp`
+### Listing 20.9 The Full Text of listing20_9's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Dog
@@ -1195,11 +1223,13 @@ public:
 
 typedef void (Dog::*PDF)() const;
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     const int maxFunctions = 4;
 
-    PDF dogFunctions[maxFunctions] = 
+    PDF dogFunctions[maxFunctions] =
     {
         &Dog::speak,
         &Dog::move,
@@ -1212,7 +1242,7 @@ int main()
     bool loop = true;
 
     while(loop)
-    {   
+    {
         std::cout << "(0) Quit, (1) Speak, (2) Move, (3) Eat, or (4) Growl: ";
         std::cin >> method;
 
@@ -1232,7 +1262,7 @@ int main()
 
     }
 
-    return 0;
+    return a.exec();
 }
 ```
 

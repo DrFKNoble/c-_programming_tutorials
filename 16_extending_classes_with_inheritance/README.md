@@ -47,8 +47,9 @@ This statement creates a derived class named `Car` from the base class `Vehicle`
 
 Listing 16.1's program demonstrates how to derive a class from a base class.
 
-### Listing 16.1 The Full Text of `listing_16_1.cpp`
+### Listing 16.1 The Full Text of listing16_1's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 enum MANUFACTURER
@@ -85,9 +86,11 @@ protected:
     MANUFACTURER make;
 };
 
-int main()
+int main(int argc, char *argv[])
 {
-    return 0;
+    QCoreApplication a(argc, argv);
+
+    return a.exec();
 }
 ```
 
@@ -111,8 +114,9 @@ Even if other classes are layered between a derived class and the base class, th
 
 Listing 16.2's program demonstrates how to derive a class and access it and the base class's data and member functions.
 
-### Listing 16.2 The Full Text of `listing_16_2.cpp`
+### Listing 16.2 The Full Text of listing16_2's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 #include <string>
 
@@ -170,7 +174,7 @@ public:
     int getCC() const;
     void setCC(int newCC);
 
-protected:
+private:
     int cc;
     MANUFACTURER make;
 };
@@ -219,14 +223,16 @@ void Car::setCC(int newCC)
     return;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     Car myCar;
 
     std::cout << "myCar is made by " << myCar.getMake();
     std::cout << ", has " << myCar.getWheels() << " wheels, and a " << myCar.getCC() << " cc sized engine." << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -254,8 +260,9 @@ When `myCar` is destroyed, the `Car` destructor is called first, followed by the
 
 Listing 16.3's program demonstrates how constructors and destructors are called.
 
-### Listing 16.3 The Full Text of `listing_16_3.cpp`
+### Listing 16.3 The Full Text of listing16_3's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 #include <string>
 
@@ -370,14 +377,16 @@ void Car::setCC(int newCC)
     return;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     Car myCar;
 
     std::cout << "myCar is made by " << myCar.getMake();
     std::cout << ", has " << myCar.getWheels() << " wheels and a " << myCar.getCC() << " cc sized engine." << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -403,6 +412,7 @@ Listing 16.4's program demonstrates how to initialise a base class.
 
 ### Listing 16.4 The Full Text of `listing_16_4.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 #include <string>
 
@@ -549,20 +559,22 @@ void Car::setCC(int newCC)
     return;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     Car myCar1;
     Car myCar2(3, 1500);
     Car myCar3(4, 2000, Toyota);
 
-    std::cout << "myCar1 is a " << myCar1.getMake(); 
+    std::cout << "myCar1 is a " << myCar1.getMake();
     std::cout << " and it has " << myCar1.getWheels() << " wheels and a " << myCar1.getCC() << " cc sized engine." << std::endl;
-    std::cout << "myCar2 is a " << myCar2.getMake(); 
+    std::cout << "myCar2 is a " << myCar2.getMake();
     std::cout << " and it has " << myCar2.getWheels() << " wheels and a " << myCar2.getCC() << " cc sized engine." << std::endl;
     std::cout << "myCar3 is a " << myCar3.getMake();
     std::cout << " and it has " << myCar3.getWheels() << " wheels and a " << myCar3.getCC() << " cc sized engine." << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -610,8 +622,9 @@ When you override a function, it must agree in return type and in signature with
 
 Listing 16.5's program demonstrates how to override a base class's member function.
 
-## Listing 16.5 The Full Text of `listing_16_5.cpp`
+## Listing 16.5 The Full Text of listing16_5's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 #include <string>
 
@@ -743,14 +756,16 @@ int Car::getWheels() const
     return ++tempWheels;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     Car myCar1;
 
     std::cout << "myCar1 is a " << myCar1.getMake();
     std::cout << " and it has " << myCar1.getWheels() << " wheels and a " << myCar1.getCC() << " cc sized engine." << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -784,8 +799,9 @@ If `Vehicle` overrides `accelerate()` as two functions - one that takes no param
 
 Listing 16.6's program demonstrates the problem of overriding a base class's overloaded function.
 
-### Listing 16.6 The Full Text of `listing_16_6.cpp`
+### Listing 16.6 The Full Text of listing16_6's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 enum MANUFACTURER
@@ -815,6 +831,8 @@ void Vehicle::accelerate()
 void Vehicle::accelerate(int acc)
 {
     std::cout << "Vehicle accelerates " << acc << " m/s^2." << std::endl;
+
+    return;
 }
 
 class Car : public Vehicle
@@ -833,11 +851,12 @@ void Car::accelerate()
     return;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
     Vehicle myVehicle;
-    
+
     myVehicle.accelerate();
     myVehicle.accelerate(2);
 
@@ -846,7 +865,7 @@ int main()
     myCar.accelerate();
     // myCar.accelerate(10);
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -888,8 +907,9 @@ This call's `Vehicle`'s `accelerate(int)` function explicitly.
 
 Listing 16.7's program demonstrates how a base class's member function can be called explicitly.
 
-### Listing 16.7 The Full Text of `listing_16_7.cpp`
+### Listing 16.7 The Full Text of listing16_7's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 enum MANUFACTURER
@@ -937,8 +957,9 @@ void Car::accelerate()
     return;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
     Vehicle myVehicle;
 
@@ -948,7 +969,7 @@ int main()
 
     myCar.Vehicle::accelerate(10);
 
-    return 0;
+    return a.exec();
 }
 ```
 

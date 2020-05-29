@@ -24,8 +24,9 @@ When you call delete on a pointer to an object on the heap, the object's destruc
 
 Listing 11.1's program demonstrates how to create and delete objects on the heap.
 
-### Listing 11.1 The Full Text of `listing_11_1.cpp`
+### Listing 11.1 The Full Text of listing11_1's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Dog
@@ -53,8 +54,10 @@ Dog::~Dog()
     return;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     std::cout << "Dog myFirstDog;" << std::endl;
     Dog myFirstDog;
 
@@ -66,7 +69,7 @@ int main()
 
     std::cout << "myFirstDog" << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -109,8 +112,9 @@ Because this is cumbersome, C++ provides a shorthand operator for indirect acces
 
 Listing 11.2's program demonstrates accessing member variables and member functions of objects created on the heap.
 
-### Listing 11.2 The Full Text of `listing_11_2.cpp`
+### Listing 11.2 The Full Text of listing11_2's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Dog
@@ -146,8 +150,9 @@ void Dog::SetAge(int newAge)
     age = newAge;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
     Dog *myDog = new Dog;
 
@@ -159,7 +164,7 @@ int main()
 
     delete myDog;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -188,8 +193,9 @@ One or more of a class's data member can be a pointer to an object on the heap. 
 
 Listing 11.3's program demonstrates memory being allocated in a class.
 
-### Listing 11.3 The Full Text of `listing_11_3.cpp`
+### Listing 11.3 The Full Text of listing11_3's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Dog
@@ -197,7 +203,7 @@ class Dog
 public:
     Dog();
     ~Dog();
-    
+
     int GetAge() const;
     void SetAge(int newAge);
     int GetWeight() const;
@@ -246,8 +252,10 @@ void Dog::SetWeight(int newWeight)
     return;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     Dog *myDog = new Dog;
 
     std::cout << "My dog is " << myDog->GetAge() << " years old." << std::endl;
@@ -258,7 +266,8 @@ int main()
 
     delete myDog;
 
-    return 0;
+
+    return a.exec();
 }
 ```
 
@@ -291,8 +300,9 @@ The job of the `this` pointer is to point to the individual object whose functio
 
 Listing 11.4's program demonstrates how the `this` pointer can be used.
 
-###  Listing 11.4 The Full Text of `listing_11_4.cpp`
+###  Listing 11.4 The Full Text of listing 11_4's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Cage
@@ -353,8 +363,9 @@ void Cage::SetMood(bool newMood)
     return;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
     Cage aCage;
 
@@ -366,8 +377,8 @@ int main()
     }
     else
     {
-        std::cout << "sad" << std::endl;   
-    }    
+        std::cout << "sad" << std::endl;
+    }
 
     aCage.SetAnimals(2);
     aCage.SetMood(false);
@@ -380,10 +391,10 @@ int main()
     }
     else
     {
-        std::cout << "sad" << std::endl;   
-    }    
+        std::cout << "sad" << std::endl;
+    }
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -453,8 +464,9 @@ If you declare a pointer to a `const` object, the only functions that you can ca
 
 Listing 11.5 demonstrates how a pointer to a `const` object can be used.
 
-### Listing 11.5 The Full Text of `listing_11_5.cpp`
+### Listing 11.5 The Full Text of listing11_5's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Cage
@@ -467,7 +479,6 @@ public:
     void SetAnimals(int newAnimals);
     bool GetMood() const;
     void SetMood(bool newMood);
-
 
 private:
     int animals;
@@ -504,7 +515,6 @@ bool Cage::GetMood() const
     return happy;
 }
 
-
 void Cage::SetMood(bool newMood)
 {
     happy = newMood;
@@ -512,12 +522,13 @@ void Cage::SetMood(bool newMood)
     return;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
     Cage *pCage = new Cage;
     const Cage *pConstCage = new Cage;
-    Cage * const pConstPtrCage = new Cage;
+    Cage *const pConstPtrCage = new Cage;
 
     std::cout << "There are " << pCage->GetAnimals() << " animals in pCage" << std::endl;
     std::cout << "There are " << pConstCage->GetAnimals() << " animals in pConstCage" << std::endl;
@@ -531,7 +542,7 @@ int main()
     std::cout << "There are " << pConstCage->GetAnimals() << " animals in pConstCage" << std::endl;
     std::cout << "There are " << pConstPtrCage->GetAnimals() << " animals in pConstPtrCage" << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 

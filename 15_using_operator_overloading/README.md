@@ -39,8 +39,9 @@ Expressions written using operators are easier to read and understand.
 
 Listing 15.1's program provides a basic class, which will be extended to use operator overloading in additional listings.
 
-### Listing 15.1 The Full Text of `listing_15_1.cpp`
+### Listing 15.1 The Full Text of listing15_1's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Counter
@@ -78,12 +79,14 @@ void Counter::setValue(int newValue)
     return;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     Counter count;
     std::cout << "count's value is: " << count.getValue() << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -118,8 +121,9 @@ The name of the function is `operator` followed by the operator being defined, s
 
 Listing 15.2's program illustrates how to overload the increment operator.
 
-### Listing 15.2 The Full Text of `listing_15_2.cpp`
+### Listing 15.2 The Full Text of listing15_2's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Counter
@@ -174,8 +178,10 @@ const Counter& Counter::operator++()
     return *this;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     Counter count1;
     std::cout << "count1's value is: " << count1.getValue() << std::endl;
 
@@ -188,8 +194,8 @@ int main()
     Counter count2 = ++count1;
     std::cout << "count1's value is: " << count1.getValue();
     std::cout << ", count2's value is: " << count2.getValue() << std::endl;
-    
-    return 0;
+
+    return a.exec();
 }
 ```
 
@@ -226,8 +232,9 @@ The temporary object must be returned by value and not by reference. Otherwise, 
 
 Listing 15.3's program demonstrates how to overload the increment operator.
 
-### Listing 15.3 The Full Text of `listing_15_3.cpp`
+### Listing 15.3 The Full Text of listing15_3's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Counter
@@ -239,8 +246,8 @@ public:
     int getValue() const;
     void setValue(int newValue);
 
-    const Counter& operator++();        // prefix operator
-    const Counter operator++(int);      // postfix operator
+    const Counter& operator++();
+    const Counter operator++(int);
 
 private:
     int value;
@@ -279,12 +286,14 @@ const Counter Counter::operator++(int)
 {
     Counter temp(*this);
     ++value;
-    
+
     return temp;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     Counter count1;
     std::cout << "count1's value is: " << count1.getValue() << std::endl;
 
@@ -297,12 +306,12 @@ int main()
     Counter count2 = ++count1;
     std::cout << "count1's value is: " << count1.getValue();
     std::cout << ", count2's value is: " << count2.getValue() << std::endl;
-    
+
     count2 = count1++;
     std::cout << "count1's value is: " << count1.getValue();
     std::cout << ", count2's value is: " << count2.getValue() << std::endl;
-    
-    return 0;
+
+    return a.exec();
 }
 ```
 
@@ -334,8 +343,9 @@ The increment is a unary operator, which means that it takes only one operand. T
 
 Listing 15.4's program demonstrates how the addition operator can be overloaded.
 
-### Listing 15.4 The Full Text of `listing_15_4.cpp`
+### Listing 15.4 The Full Text of listing15_4's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Counter
@@ -386,17 +396,19 @@ const Counter Counter::operator+(const Counter& rhs)
     return Counter(value + rhs.getValue());
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     Counter count1(4), count2(13), count3;
-    
+
     count3 = count1 + count2;
-    
+
     std::cout << "count1's value is: " << count1.getValue() << std::endl;
     std::cout << "count2's value is: " << count2.getValue() << std::endl;
     std::cout << "count3's value is: " << count3.getValue() << std::endl;
-     
-    return 0;
+
+    return a.exec();
 }
 ```
 
@@ -478,8 +490,9 @@ This can be prevented if the assignment operator checks to see whether the right
 
 Listing 15.5's program demonstrates how the assignment operator can be overloaded.
 
-### Listing 15.5 The Full Text of `listing_15_5.cpp`
+### Listing 15.5 The Full Text of listing15_5's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Bike
@@ -529,17 +542,19 @@ Bike Bike::operator=(const Bike& rhs)
     {
         return *this;
     }
-    
+
     delete speed;
     speed = new int;
-    
+
     *speed = rhs.getSpeed();
-    
+
     return *this;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     Bike myBike;
     std::cout << "myBike's speed: " << myBike.getSpeed() << " m/s" << std::endl;
 
@@ -556,7 +571,7 @@ int main()
     std::cout << "myBike's speed: " << myBike.getSpeed() << " m/s" << std::endl;
     std::cout << "yourBike's speed: " << yourBike.getSpeed() << " m/s" << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -592,8 +607,9 @@ What happens when you try to assign a variable of a built-in type, such as an `i
 
 Listing 15.6's program demonstrates what happens in this case.
 
-### Listing 15.6 The Full Text of `listing_15_6.cpp`
+### Listing 15.6 The Full Text of listing15_6's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Counter
@@ -631,14 +647,16 @@ void Counter::setValue(int newValue)
     return;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     int count1 = 5;
-    
+
     Counter count2 = count1;
     std::cout << "count2's value is: " << count2.getValue() << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -656,8 +674,9 @@ This problem can be fixed with a conversion operator.
 
 Listing 15.7's program demonstrates how a conversion operator can be used.
 
-### Listing 15.7 The Full Text of `listing_15_7.cpp`
+### Listing 15.7 The Full Text of listing15_7's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Counter
@@ -701,14 +720,16 @@ void Counter::setValue(int newValue)
     return;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     int count1 = 5;
-    
+
     Counter count2 = count1;
     std::cout << "count2's value is: " << count2.getValue() << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -738,8 +759,9 @@ C++ provides conversion operators that can be added to a class to specify how to
 
 Listing 15.8's program demonstrates how to use conversion operators.
 
-### Listing 15.8 The Full Text of `listing_15_8.cpp`
+### Listing 15.8 The Full Text of listing15_8's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Counter
@@ -790,8 +812,11 @@ Counter::operator unsigned int()
     return (value);
 }
 
-int main()
+
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     Counter count1(10);
 
     int count2 = count1;
@@ -799,7 +824,7 @@ int main()
     std::cout << "count1's value is: " << count2 << std::endl;
     std::cout << "count2's value is: " << count2 << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 

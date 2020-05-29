@@ -37,12 +37,15 @@ Without the statement `x++`, the value of `x` would remain 0 and the loop would 
 
 Listing 6.1's program demonstrates how a `while` loop can be used.
 
-### Listing 6.1 The Full Text of `listing_6_1.cpp`
+### Listing 6.1 The Full Text of listing6_1's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     int counter = 0;
 
     while (counter < 500)
@@ -57,7 +60,7 @@ int main()
 
     std::cout << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -79,12 +82,15 @@ The `break` statement causes a loop to end immediately, instead of waiting for i
 
 Listing 6.2's program demonstrates how a `break` statement can be used.
 
-### Listing 6.2 The Full Text of `listing_6_2.cpp`
+### Listing 6.2 The Full Text of listing6_2's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     int counter = 0;
     int multiples = 0;
 
@@ -103,7 +109,7 @@ int main()
 
     std::cout << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -134,12 +140,15 @@ A `continue` statement is another way to alter the performance on a loop. When `
 
 Listing 6.3's program demonstrates how the `continue` statement is used.
 
-### Listing 6.3 The Full Text of `listing_6_3.cpp`
+### Listing 6.3 The Full Text of listing6_3's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     int counter = 0;
     int multiples = 0;
 
@@ -151,12 +160,12 @@ int main()
             continue;
 
         std::cout << counter << " ";
-        multiples++;        
+        multiples++;
     }
 
     std::cout << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -201,12 +210,15 @@ A `do-while` loop always executes the body at least once.
 
 Listing 6.4's program demonstrates how a `do-while` is used.
 
-### Listing 6.4 The Full Text of `listing_6_4.cpp`
+### Listing 6.4 The Full Text of listing6_4's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     int badger = 0;
 
     std::cout << "How many badgers are there? ";
@@ -220,10 +232,8 @@ int main()
 
     std::cout << std::endl;
 
-    return 0;
+    return a.exec();
 }
-
-// as an aside, have a look at https://www.youtube.com/watch?v=EIyixC9NsLI.
 ```
 
 When compiled and run, Listing 6.4's program produces the following output:
@@ -278,12 +288,15 @@ The third section of the loop is the action that changes the counter variable. A
 
 Listing 6.5's program demonstrates how a `for` loop can be used.
 
-### Listing 6.5 The Full Text of `listing_6_5.cpp`
+### Listing 6.5 The Full Text of listing6_5's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     int number = 0;
 
     std::cout << "Enter a number: ";
@@ -298,7 +311,7 @@ int main()
 
     std::cout << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -352,12 +365,15 @@ Loops can be nested within another loop. The inner loop will be executed in its 
 
 Listing 6.6's program demonstrates how a `for` loop can be nested within another `for` loop.
 
-### Listing 6.6 The Full Text of `listing_6_6.cpp`
+### Listing 6.6 The Full Text of listing6_6's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     int rows = 0, columns = 0;
     char character = 0;
 
@@ -378,14 +394,14 @@ int main()
         {
             std::cout << character;
         }
-        
+
         std::cout << std::endl;
 
     }
 
     std::cout << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -449,12 +465,15 @@ If there are no `break` statements at the end of a `case` section, execution fal
 
 Listing 6.7's program demonstrates how a `switch` statement can be used.
 
-### Listing 6.7 The Full Text of `listing_6_7.cpp`
+### Listing 6.7 The Full Text of listing6_7's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     char grade = 0;
 
     std::cout << "Enter your letter grade (A,B,C,D,E,F): ";
@@ -475,7 +494,7 @@ int main()
             std::cout << "I know you can do it.";
             break;
         case 'E':
-            std::cout << "I believe in you.";
+            std::cout << "I belive in you.";
             break;
         case 'F':
             std::cout << "Have another go. I'm sure you'll do better next time!";
@@ -487,7 +506,7 @@ int main()
 
     std::cout << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 

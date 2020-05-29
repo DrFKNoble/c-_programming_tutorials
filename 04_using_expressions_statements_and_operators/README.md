@@ -76,12 +76,15 @@ Operand is a term referring to the part of an expression operated upon by an ope
 
 Listing 4.1 displays the values of three variables before and after they are used in a complex, multiple-expression statement.
 
-### Listing 4.1 The Full Text of `listing_4_1.cpp`
+### Listing 4.1 The Full Text of listing4_1's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     int x = 12, y = 42, z = 88;
 
     std::cout << "Before -- x: " << x << " y: " << y << " z: " << z << std::endl;
@@ -89,8 +92,9 @@ int main()
     z = x = y + 13;
 
     std::cout << "After -- x: " << x << " y: " << y << " z: " << z << std::endl;
- 
-    return 0;
+
+
+    return a.exec();
 }
 ```
 
@@ -207,12 +211,15 @@ After these statements are executed, the `x` variable is equal to 6 and `sum` is
 
 Listing 4.2 demonstrates counting forward several years using prefix and postfix increment operators.
 
-### Listing 4.2 The Full Text of `listing_4_2.cpp`
+### Listing 4.2 The Full Text of listing4_2's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     int year = 2019;
 
     std::cout << "The year " << ++year << " passes" << std::endl;
@@ -227,7 +234,7 @@ int main()
 
     std::cout << "It is now: " << year << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -380,12 +387,15 @@ else
 
 Listing 4.3 demonstrates the use of conditional statements.
 
-### Listing 4.3 The Full Text of `listing_4.3.cpp`
+### Listing 4.3 The Full Text of listing4_3's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     int grade;
 
     std::cout << "Enter a grade (1-100): ";
@@ -396,7 +406,7 @@ int main()
     else
         std::cout << "I'm sorry. You failed." << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -431,12 +441,15 @@ Any statement can be used with an `if` conditional, even another `if` or `else` 
 
 Listing 4.4 expands upon Listing 4.3, displaying different messages for different grades.
 
-### Listing 4.4 The Full Text of `listing_4_4.cpp`
+### Listing 4.4 The Full Text of lisitng4_4's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     int grade;
 
     std::cout << "Enter a grade (1-100): ";
@@ -457,11 +470,9 @@ int main()
         std::cout << "You got a C." << std::endl;
     }
     else
-    {
         std::cout << "I'm sorry. You failed." << std::endl;
-    }
 
-    return 0;
+    return a.exec();
 }
 ```
 

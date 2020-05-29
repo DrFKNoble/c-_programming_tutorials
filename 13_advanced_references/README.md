@@ -23,8 +23,9 @@ With large objects, these constructor and destructor calls can be expensive in s
 
 Listing 13.1's program demonstrates how an object's constructor, copy constructor, and destructor are called when the object is passed to a function.
 
-### Listing 13.1 The Full Text of `listing_13_1.cpp`
+### Listing 13.1 The Full Text of listing13_1's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Computer
@@ -59,8 +60,9 @@ Computer::~Computer()
 Computer Function1(Computer pc);
 Computer* Function2(Computer *pc);
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
     std::cout << "Creating a desktop computer." << std::endl;
 
@@ -74,17 +76,17 @@ int main()
 
     Function2(&desktop);
 
-    return 0;
+    return a.exec();
 }
 
-Computer Function1(Computer pc) 
+Computer Function1(Computer pc)
 {
     std::cout << "Function1." << std::endl;
 
     return pc;
 }
 
-Computer* Function2(Computer *pc) 
+Computer* Function2(Computer *pc)
 {
     std::cout << "Function2." << std::endl;
 
@@ -132,10 +134,11 @@ Though passing a pointer to `Function2()` is Listing 12.1 is more efficient, it 
 
 If you want to provide the security of pass by value and the efficiency of pass by reference, the solution is to pass a `const` pointer. This prevents calling any non-`const` member functions of `Computer`.
 
-Listing 12.2's program demonstrates how a `const` pointer to an object can be used.
+Listing 13.2's program demonstrates how a `const` pointer to an object can be used.
 
-### Listing 12.2 Full Text of `listing_12_2.cpp`
+### Listing 13.2 Full Text of listing13_2's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Computer
@@ -189,8 +192,9 @@ void Computer::SetStorage(int newStorage)
 
 const Computer* Function2(const Computer * const pc);
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
     std::cout << "Creating a desktop computer." << std::endl;
 
@@ -208,10 +212,10 @@ int main()
 
     std::cout << "Computer has " << desktop.GetStorage() << " MB's" << std::endl;
 
-    return 0;
+    return a.exec();
 }
 
-const Computer* Function2(const Computer * const pc) 
+const Computer* Function2(const Computer * const pc)
 {
     std::cout << "Function2." << std::endl;
 
@@ -253,14 +257,15 @@ It's worth noting that, on line 63, `desktop`'s storage was changed. This is all
 
 ## References as an Alternative to Pointes
 
-Listing 12.2's program solves the problem of making extra copies, saving the calls to the copy constructor and destructor. It uses constant pointers to constant objects, thereby solving the problem of a called function making changes to the objects passed as parameters. The is still cumbersome, however, because the objects passed to the function are pointers.
+Listing 13.2's program solves the problem of making extra copies, saving the calls to the copy constructor and destructor. It uses constant pointers to constant objects, thereby solving the problem of a called function making changes to the objects passed as parameters. The is still cumbersome, however, because the objects passed to the function are pointers.
 
 Because the parameters will never by NULL, it is easier to work with the function if references are passed instead of pointers.
 
 Listing 13.3's program demonstrates how references can be used.
 
-### Listing 13.3 The Full Text of `listing_13_3.cpp`
+### Listing 13.3 The Full Text of listing13_3's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Computer
@@ -314,8 +319,9 @@ void Computer::SetStorage(int newStorage)
 
 const Computer & Function2(const Computer &pc);
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
     std::cout << "Creating a desktop computer." << std::endl;
 
@@ -333,10 +339,10 @@ int main()
 
     std::cout << "Computer has " << desktop.GetStorage() << " MB's" << std::endl;
 
-    return 0;
+    return a.exec();
 }
 
-const Computer & Function2(const Computer &pc) 
+const Computer & Function2(const Computer &pc)
 {
     std::cout << "Function2." << std::endl;
 
@@ -374,8 +380,9 @@ A reference is an alias that refers to some other object. If you pass a referenc
 
 Listing 13.4's program demonstrates the danger of returning a reference to an object that no longer exists.
 
-### Listing 13.4 The Full Text of `listing_13_4.cpp`
+### Listing 13.4 The Full Text of listing13_4's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Computer
@@ -417,22 +424,23 @@ void Computer::SetStorage(int newStorage)
 
 Computer & BadFunction();
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
     Computer &rDesktop = BadFunction();
 
     std::cout << "Computer has " << rDesktop.GetStorage() << "MB's." << std::endl;
 
-    return 0;
+    return a.exec();
 }
 
 Computer & BadFunction()
 {
 
-    Computer LocalDesktop;
+    Computer localDesktop;
 
-    return LocalDesktop;
+    return localDesktop;
 }
 ```
 
@@ -461,8 +469,9 @@ The problem with this is: what do you do with `localDesktop`'s memory when you a
 
 Listing 13.5 demonstrates what happens when you return a reference to an object on the heap.
 
-### Listing 13.5 The Full Text of `listing_13_5.cpp`
+### Listing 13.5 The Full Text of listing13_5's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 class Computer
@@ -504,13 +513,15 @@ void Computer::SetStorage(int newStorage)
 
 Computer & BadFunction();
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     Computer &rDesktop = BadFunction();
 
     std::cout << "Computer has " << rDesktop.GetStorage() << "MB's." << std::endl;
 
-    return 0;
+    return a.exec();
 }
 
 Computer & BadFunction()

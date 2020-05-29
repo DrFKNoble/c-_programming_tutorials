@@ -26,12 +26,15 @@ Different computers number their memory using different schemes. Usually, progra
 
 Listing 10.1's program demonstrates how the address-of operator can be used.
 
-### Listing 10.1 The Full Text of `listing_10_1.cpp`
+### Listing 10.1 The Full Text of listing10_1's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     unsigned short shortVar = 5;
     unsigned long longVar = 65535;
     long sVar = -65535;
@@ -46,7 +49,7 @@ int main()
     std::cout << " Address of sVar: " << &sVar << std::endl;
     std::cout << "sizeof(sVar): " << sizeof(sVar) << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -190,12 +193,15 @@ After a pointer is assigned the address of a variable, you can use that pointer 
 
 Listing 10.2's program demonstrates how a pointer can be used to manipulate a variable's value.
 
-### Listing 10.2 The Full Text of `listing_10_2.cpp`
+### Listing 10.2 The Full Text of listing10_2's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     int myAge;              // a variable
     int *pAge = nullptr;    // a pointer
 
@@ -205,7 +211,7 @@ int main()
     std::cout << "myAge: " << myAge << std::endl;
     std::cout << "*pAge: " << *pAge << std::endl << std::endl;
 
-    std::cout << "*pAge = 29" << std::endl;
+    std::cout << "*pAge = 29" << std::endl << std::endl;
     *pAge = 29;             // sets myAge to 29
 
     std::cout << "myAge: " << myAge << std::endl;
@@ -216,7 +222,8 @@ int main()
     std::cout << "myAge: " << myAge << std::endl;
     std::cout << "*pAge: " << *pAge << std::endl;
 
-    return 0;
+
+    return a.exec();
 }
 ```
 
@@ -257,12 +264,15 @@ Pointers enable you to manipulate address without ever knowing their real value.
 
 Listing 10.3 demonstrates how to check the address of a variable stored in a pointer.
 
-### Listing 10.3 The Full Text of `listing_10_3.cpp`
+### Listing 10.3 The Full Text of listing10_3's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     unsigned short int myAge = 33, yourAge = 29;
     unsigned short int *pAge = &myAge; // pointer
 
@@ -280,7 +290,7 @@ int main()
 
     std::cout << "&pAge: " << &pAge << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -404,20 +414,23 @@ delete pInt;
 
 Listing 10.4's program demonstrates how to allocate a variable on the heap.
 
-### Listing 10.4 The Full Text of `listing_10_4.cpp`
+### Listing 10.4 The Full Text of listing10_4's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     int localVariable = 33;
     int *pLocalVariable = &localVariable;
     int *pHeap = new int;
-    
+
     if (pHeap == nullptr)
     {
-        std::cout << "Error! No memory for pHeap." << std::endl;
-    
+        std::cout << "Error! No memmory for pHeap." << std::endl;
+
         return 1;
     }
 
@@ -434,17 +447,17 @@ int main()
     if (pHeap == nullptr)
     {
         std::cout << "Error! No memmory for pHeap." << std::endl;
-    
+
         return 1;
     }
 
     *pHeap = 33;
-    
+
     std::cout << "*pHeap: " << *pHeap << std::endl;
 
     delete pHeap;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -537,12 +550,15 @@ A `nullptr` is not implicitly converted to an integer type, except for `bool` va
 
 Listing 10.5's program demonstrates how a `nullptr` can be used.
 
-### Listing 10.5 The Full Text of `listing_10_2.cpp`
+### Listing 10.5 The Full Text of listing10_5's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     int value1 = 1000;
     int value2 = 2000;
     int *pointer2 = nullptr;
@@ -558,7 +574,7 @@ int main()
     std::cout << "value1: " << value1 << std::endl;
     std::cout << "value2: " << value2 << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 

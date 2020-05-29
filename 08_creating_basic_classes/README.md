@@ -159,11 +159,12 @@ Class member functions behave the same as regular functions; they can have param
 
 Listing 8.1's program demonstrate how to declare a class, define its member functions, and create an instance of it.
 
-### Listing 8.1 The Full Text of `listing_8_1.cpp`
+### Listing 8.1 The Full Text of listing8_1's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-class Bike 
+class Bike
 {
 public:
     int getSpeed();
@@ -174,7 +175,7 @@ private:
     int speed;
 };
 
-int Bike::getSpeed() 
+int Bike::getSpeed()
 {
     return speed;
 }
@@ -192,7 +193,7 @@ void Bike::setSpeed(int newSpeed)
 void Bike::pedal()
 {
     setSpeed(speed + 1);
-    std::cout << "Pedalling. Speed: " << speed << " m/s" << std::endl;
+    std::cout << "Pedaling. Speed: " << speed << " m/s" << std::endl;
 
     return;
 }
@@ -205,8 +206,9 @@ void Bike::brake()
     return;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
     Bike myBike;
 
@@ -216,7 +218,7 @@ int main()
     myBike.pedal();
     myBike.brake();
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -325,11 +327,12 @@ If you define a constructor, it's a good practice to define a destructor even if
 
 Listing 8.2's program demonstrates how to use a constructor to initialise an object's member variable's value.
 
-### Listing 8.2 The Full Text of `listing_8_2.cpp`
+### Listing 8.2 The Full Text of listing8_2's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-class Bike 
+class Bike
 {
 public:
     Bike(int);
@@ -352,7 +355,7 @@ Bike::~Bike()
     // do nothing.
 }
 
-int Bike::getSpeed() 
+int Bike::getSpeed()
 {
     return speed;
 }
@@ -370,7 +373,7 @@ void Bike::setSpeed(int newSpeed)
 void Bike::pedal()
 {
     setSpeed(speed + 1);
-    std::cout << "Pedalling. Speed: " << speed << " m/s" << std::endl;
+    std::cout << "Pedaling. Speed: " << speed << " m/s" << std::endl;
 
     return;
 }
@@ -383,8 +386,9 @@ void Bike::brake()
     return;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
     Bike myBike(5);
 
@@ -393,7 +397,7 @@ int main()
     myBike.pedal();
     myBike.brake();
 
-    return 0;
+    return a.exec();
 }
 ```
 

@@ -63,14 +63,17 @@ int addNumbers(int num1, int num2)
 
 Here, this function adds two integers together and returns the sum. Listing 5.1 demonstrates how a function can be used in a program.
 
-### Listing 5.1 The Full Text of `listing_5_1.cpp`
+### Listing 5.1 The Full Text of listing5_1's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 int findArea(int length, int width);
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     int length = 0;
     int width = 0;
     int area = 0;
@@ -84,12 +87,12 @@ int main()
 
     std::cout << "Your room's area is " << area << " m^2." << std::endl;
 
-    return 0;
+    return a.exec();
 }
 
-int findArea(int length, int width)
+int findArea(int l, int w)
 {
-    return length * width;
+    return l * w;
 }
 ```
 
@@ -118,14 +121,16 @@ Local variables are created like any other variable. The parameters received by 
 
 Listing 5.2 demonstrates the use of local variables.
 
-### Listing 5.2 The Full Text of `listing_5_2.cpp`
+### Listing 5.2 The Full Text of listing5_2's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 float convertFtoC(float fahrenheit);
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
     float fahrenheit = 0;
     float celcius = 0;
@@ -137,17 +142,17 @@ int main()
 
     std::cout << fahrenheit << " F is " << celcius << " C";
 
-    return 0;
+    return a.exec();
 }
 
 // function to convert temperature expressed in degrees Fahrenheit to degrees Celsius.
-float convertFtoC(float f)
+float convertFtoC(float fahrenheit)
 {
-    float c = 0;
+    float celcius = 0;
 
-    c = ((f - 32) * 5) / 9;
+    celcius = ((fahrenheit - 32) * 5) / 9;
 
-    return c;
+    return celcius;
 }
 ```
 
@@ -182,8 +187,9 @@ Variables defined outside of any function have global scope and are available fr
 
 Listing 5.3 demonstrates the use of global variables.
 
-### Listing 5.3 The Full Text of `listing_5_3.cpp`
+### Listing 5.3 The Full Text of listing5_3 `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 void convertFtoC();
@@ -191,8 +197,9 @@ void convertFtoC();
 float fahrenheit = 0;
 float celcius = 0;
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
     std::cout << "Please enter the temperature in Fahrenheit: ";
     std::cin >> fahrenheit;
@@ -201,7 +208,7 @@ int main()
 
     std::cout << fahrenheit << " F is " << celcius << " C";
 
-    return 0;
+    return a.exec();
 }
 
 // function to convert temperature expressed in degrees Fahrenheit to degrees Celsius.
@@ -283,14 +290,16 @@ It is permitted to have more than one return statement in a function.
 
 Listing 5.4 demonstrates `return` statements being used.
 
-### Listing 5.4 The Full Text of `listing_5_4.cpp`
+### Listing 5.4 The Full Text of listing5_4's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 bool isLeapYear(int year);
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
     int input = 0;
 
@@ -302,12 +311,12 @@ int main()
     else
         std::cout << input << " is not a leap year." << std::endl;
 
-    return 0;
+    return a.exec();
 }
 
 bool isLeapYear(int year)
 {
-    
+
     if (year % 4 == 0)
     {
         if (year % 100 == 0)
@@ -318,7 +327,7 @@ bool isLeapYear(int year)
                 return false;
         }
         else
-            return false;
+            return true;
     }
     else
         return false;
@@ -397,14 +406,16 @@ The arguments' values would be 1, 2, 3, and 5 for `x`, `y`, `z`, and `t`, respec
 
 Listing 5.5 demonstrates the use of default function parameters.
 
-### Listing 5.5 The Full Text of `listing_5_5.cpp`
+### Listing 5.5 The Full Text of listing5_5's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 int findVolume(int length, int width = 20, int height = 12);
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
     int length = 100;
     int width = 50;
@@ -423,10 +434,10 @@ int main()
 
     std::cout << "Volume 3: " << volume << " m^3" << std::endl;
 
-    return 0;
+    return a.exec();
 }
 
-int findVolume(int length, int width, int height) 
+int findVolume(int length, int width, int height)
 {
     return (length * width * height);
 }
@@ -527,19 +538,21 @@ Keep in mind, though, that if a function has multiple `return` statements, they 
 
 Listing 5.6 demonstrates the use of the `auto` keyword to deduce a function's returned value's type. Note, the function must be defined before the code that uses it.
 
-### Listing 5.6 The Full Text of `listing_5_6.cpp`
+### Listing 5.6 The Full Text of listing5_6's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 auto findVolume(int length, int width = 20, int height = 12);
 
-auto findVolume(int length, int width, int height) 
+auto findVolume(int length, int width, int height)
 {
     return (length * width * height);
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
     int length = 100;
     int width = 50;
@@ -558,7 +571,7 @@ int main()
 
     std::cout << "Volume 3: " << volume << " m^3" << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 

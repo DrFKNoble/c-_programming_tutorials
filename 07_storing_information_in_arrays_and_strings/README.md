@@ -33,18 +33,21 @@ Arrays use a zero-based numbering of array elements, which can be confusing. An 
 
 Listing 7.1's program demonstrates how an array can be used. 
 
-### Listing 7.1 The Full Text of `listing_7_1.cpp`
+### Listing 7.1 The Full Text of listing7_1's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     float goal[4];
 
     goal[0] = 0.9;
     goal[1] = 0.75;
     goal[2] = 0.5;
-    goal[3] = 0.25; 
+    goal[3] = 0.25;
 
     float weight, target;
 
@@ -60,7 +63,7 @@ int main()
         std::cout << "Goal " << i << ": " << target + loss << std::endl;
     }
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -162,28 +165,31 @@ Here, the first value is assigned to `mulArray[0][0]`, the second value is assig
 
 Listing 7.2's program demonstrates how a multidimension array can be used.
 
-### Listing 7.2 The Full Text of `listing_7_2.cpp`
+### Listing 7.2 The Full Text of listing7_2's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
-    int mulArray[3][3] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    QCoreApplication a(argc, argv);
+
+    int mulArray[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
 
     for (int i = 0; i < 3; i++)
     {
         for(int j = 0; j < 3; j++) {
-            
+
             std::cout << "mulArray[" << i << "]";
             std::cout << "[" << j << "]";
             std::cout << " = " << mulArray[i][j] << std::endl;
-            
+
         }
     }
 
     std::cout << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -281,12 +287,15 @@ Here, the statement terminates input at the first space. When the third argument
 
 Listing 7.3's program demonstrates how buffers can be used.
 
-### Listing 7.3 The Full Text of `listing_7_3.cpp`
+### Listing 7.3 The Full Text of listing7_3's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     char name[50];
     char quest[50];
     char velocity[50];
@@ -300,7 +309,7 @@ int main()
     std::cout << "What, is the velocity of an unladen swallow? ";
     std::cin.getline(velocity, 49);
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -332,13 +341,15 @@ The `strcpy_s()` function copies the entire contents of one string into a design
 
 Listing 7.4's program demonstrates how `strcpy_s()` can be used.
 
-### Listing 7.4 The Full Text of `listing_7_4.cpp`
+### Listing 7.4 The Full Text of listing7_4's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
-#include <string.h>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     char literal[] = "She's a witch!";
     char buffer[80];
 
@@ -347,7 +358,7 @@ int main()
     std::cout << "Literal: " << literal << std::endl;
     std::cout << "Buffer: " << buffer << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -376,22 +387,25 @@ The first section is a variable that will hold an element of the array. The seco
 
 Listing 7.5's program demonstrates how a foreach loop can be used.
 
-### Listing 7.5 The Full Text of `listing_7.5.cpp`
+### Listing 7.5 The Full Text of listing7_5's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     int production [] = {1000, 2000, 3000, 4000};
-    
-    for(auto element : production) 
+
+    for(auto element : production)
     {
         std::cout << "Production: " << element << std::endl;
     }
 
     std::cout << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 

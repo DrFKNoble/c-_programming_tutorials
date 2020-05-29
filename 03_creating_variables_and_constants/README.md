@@ -45,12 +45,15 @@ std::cout << sizeof(int) << std::endl;
 
 This statement displays the number of bytes required to store an integer variable. The `sizeof()` function is provided by the compiler and does not require an include directive. Listing 3.1 provides an example of how it can be used to display sizes of common C++ types on your computer.
 
-### Listing 3.1 The Full Text of `listing_3_1.cpp`
+### Listing 3.1 The Full Text of listing3_1's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     std::cout << "The size of an integer: ";
     std::cout << sizeof(int) << " bytes." << std::endl;
     std::cout << "The size of an short integer: ";
@@ -68,12 +71,12 @@ int main()
     std::cout << "The size of an long long integer: ";
     std::cout << sizeof(long long int) << " bytes." << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
 > **Note**
-This program makes use of a relatively recent addition to the C++ language: the long long int data type, which holds extremely large integers. In your compiler fails with an error on Listing 3.1, you probably are using a compiler that is out-of-date and does not support C++11, the version prior to C++14. Delete lines 19-20 and try to compile the program again. If it works, that's the problem and you need to use a newer compiler.
+This program makes use of a relatively recent addition to the C++ language: the long long int data type, which holds extremely large integers. In your compiler fails with an error on Listing 3.1, you probably are using a compiler that is out-of-date and does not support C++11, the version prior to C++14. Delete lines 23-24 and try to compile the program again. If it works, that's the problem and you need to use a newer compiler.
 
 After compiled, this program produces the following output when run on Windows 10:
 
@@ -219,12 +222,15 @@ This is called initialising the variable.
 
 Listing 3.2 uses variables and assignments to compute the area of a rectangle and display the results.
 
-### Listing 3.2 The Full Text of `listing_3_2.cpp`
+### Listing 3.2 The Full Text of listing3_2's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     // set up width and length
     unsigned short width = 26, length;
     length = 40;
@@ -236,8 +242,8 @@ int main()
     std::cout << "Width: " << width << std::endl;
     std::cout << "Length: " << length << std::endl;
     std::cout << "Area: " << area << std::endl;
-    
-    return 0;
+
+    return a.exec();
 }
 ```
 
@@ -269,12 +275,15 @@ typedef unsigned short USHORT
 
 This statement creates a type definition named USHORT that can be used anywhere in a program in place of unsigned short. Listing 3.3 is like Listing 3.2, but uses the above type definition.
 
-### Listing 3.3 The Full Text of `listing_3_3.cpp`
+### Listing 3.3 The Full Text of listing3_3's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     // create a type definition
     typedef unsigned short USHORT;
 
@@ -290,7 +299,7 @@ int main()
     std::cout << "Length: " << length << std::endl;
     std::cout << "Area: " << area << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -367,23 +376,26 @@ The advantage of this technique is that you get to use a symbolic name, such as 
 
 Listing 3.4 uses enumerated constants for the eight compass directions, storing one in a variable named heading.
 
-### Listing 3.4 The full text of `listing_3_4.cpp`
+### Listing 3.4 The full text of listing3_4's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     // set up enumeration
-    enum Direction  { North, Northeast, East, Southeast, South, Southwest, West, Northwest };
+    enum Direction  { North, Nortwest, East, Southeast, South, Southwest, West, Northwest };
 
     // create a variable to hold it
     Direction heading;
-    // initialise that variable
+    // initalise that variable
     heading = Southeast;
 
     std::cout << "Moving " << heading << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -429,10 +441,13 @@ Listing 3.5 illustrates the use of the `auto` keyword to compute a computer game
 
 ### Listing 3.5 The Full Text of `listing_3_5.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     //define character values
     auto strength = 80;
     auto accuracy = 45.5;
@@ -445,10 +460,10 @@ int main()
     auto attack = strength * (accuracy / MAXIMUM);
     auto damage = strength * (dexterity / MAXIMUM);
 
-    std::cout << std::endl << "Attack rating: " << attack << std::endl;
+    std::cout << "Attack rating: " << attack << std::endl;
     std::cout << "Damage rating: " << damage << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 

@@ -29,17 +29,20 @@ References can use any legal variable name, but it is a convention to start a re
 
 Listing 12.1's program demonstrates how to use a reference.
 
-### Listing 12.1 The Full Text of `listing_12_1.cpp`
+### Listing 12.1 The Full Text of listing12_1's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     int intOne;
     int &rSomeRef = intOne;
 
     intOne = 5;
-    
+
     std::cout << "intOne: " << intOne << std::endl;
     std::cout << "rSomeRef: " << rSomeRef << std::endl;
 
@@ -48,7 +51,7 @@ int main()
     std::cout << "intOne: " << intOne << std::endl;
     std::cout << "rSomeRef: " << rSomeRef << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -82,12 +85,15 @@ If you ask a reference for its address, it returns the address of its target. Th
 
 Listing 12.2's program demonstrates the address-of operator being used on a reference.
 
-### Listing 12.2 The Full Text of `listing_12_2.cpp`
+### Listing 12.2 The Full Text of listing12_2's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     int intOne;
     int &rSomeRef = intOne;
 
@@ -97,9 +103,9 @@ int main()
     std::cout << "rSomeRef: " << rSomeRef << std::endl;
 
     std::cout << "&intOne: " << &intOne << std::endl;
-    std::cout << "&rSomeRef: " << &rSomeRef << std::endl;
+    std::cout << "&rSomeref: " << &rSomeRef << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -126,12 +132,15 @@ Even experienced C++ programmers, who know that references cannot be reassigned 
 
 Listing 12.3's program demonstrates what happens when you try to reassign a reference.
 
-### Listing 12.3 The Full Text of `listing_12_3.cpp`
+### Listing 12.3 The Full Text of listing12_3's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     int intOne;
     int &rSomeRef = intOne;
 
@@ -146,6 +155,7 @@ int main()
 
     rSomeRef = intTwo;
 
+    std::cout << std::endl;
     std::cout << "intOne: " << intOne << std::endl;
     std::cout << "intTwo: " << intTwo << std::endl;
     std::cout << "rSomeRef: " << rSomeRef << std::endl;
@@ -153,7 +163,7 @@ int main()
     std::cout << "&intTwo: " << &intTwo << std::endl;
     std::cout << "&rSomeRef: " << &rSomeRef << std::endl;
 
-    return 0;
+    return a.exec();
 }
 ```
 
@@ -222,14 +232,17 @@ Passing an object by reference enables the function to change the object being r
 
 Listing 12.4's program demonstrates what happens when passing variables by value.
 
-### Listing 12.4 The Full Text of `listing_12_4.cpp`
+### Listing 12.4 The Full Text of listing12_4's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 void swap(int x, int y);
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     int x = 10, y = 20;
 
     std::cout << "main(). Before swap(). x: " << x << ", y: " << y << std::endl;
@@ -238,11 +251,11 @@ int main()
 
     std::cout << "main(). After swap(). x: " << x << ", y: " << y << std::endl;
 
-    return 0;
+    return a.exec();
 }
 
-void swap(int x, int y) {
-
+void swap(int x, int y)
+{
     int temp;
 
     std::cout << "swap(). Before swap. x: " << x << ", y: " << y << std::endl;
@@ -284,14 +297,17 @@ To make `swap()` change the actual values using pointers, the function should be
 
 Listing 12.5 demonstrates how pointers can be used with a function.
 
-### Listing 12.5 The Full Text of `listing_12_5.cpp`
+### Listing 12.5 The Full Text of listing12_5's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 void swap(int *pX, int *pY);
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     int x = 10, y = 20;
 
     std::cout << "main(). Before swap(). x: " << x << ", y: " << y << std::endl;
@@ -300,7 +316,7 @@ int main()
 
     std::cout << "main(). After swap(). x: " << x << ", y: " << y << std::endl;
 
-    return 0;
+    return a.exec();
 }
 
 void swap(int *pX, int *pY)
@@ -344,14 +360,17 @@ The burden of understanding the reference semantics should be on the function im
 
 Listing 12.6's program demonstrates how references can be used with a function.
 
-### Listing 12.6 The Full Text of `listing_12_6.cpp`
+### Listing 12.6 The Full Text of listing12_6's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 void swap(int &rX, int &rY);
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     int x = 10, y = 20;
 
     std::cout << "main(). Before swap(). x: " << x << ", y: " << y << std::endl;
@@ -360,7 +379,7 @@ int main()
 
     std::cout << "main(). After swap(). x: " << x << ", y: " << y << std::endl;
 
-    return 0;
+    return a.exec();
 }
 
 void swap(int &rX, int &rY)
@@ -414,25 +433,27 @@ This can be done with either pointers or references.
 
 Listing 12.7's program demonstrates how pointers can be used to return multiple values.
 
-### Listing 12.7 The Full Text of `listing_12_7.cpp`
+### Listing 12.7 The Full Text of listing12_7's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 enum ERROR_CODE { SUCCESS, ERROR };
 
 ERROR_CODE addMul(const int &in1, const int &in2, int *sum, int *prod);
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
-    int a = 0, b = 0, sum = 0, prod = 0;
+    int b = 0, c = 0, sum = 0, prod = 0;
 
-    std::cout << "Enter a positive number (> 0): ";
-    std::cin >> a;
     std::cout << "Enter a positive number (> 0): ";
     std::cin >> b;
+    std::cout << "Enter a positive number (> 0): ";
+    std::cin >> c;
 
-    if(addMul(a, b, &sum, &prod) == SUCCESS)
+    if(addMul(b, c, &sum, &prod) == SUCCESS)
     {
         std::cout << "a + b = " << sum << std::endl;
         std::cout << "a * b = " << prod << std::endl;
@@ -442,7 +463,7 @@ int main()
         std::cout << "Error: numbers must be positive (> 0)." << std::endl;
     }
 
-    return 0;
+    return a.exec();
 }
 
 ERROR_CODE addMul(const int &in1, const int &in2, int *sum, int *prod)
@@ -459,9 +480,9 @@ ERROR_CODE addMul(const int &in1, const int &in2, int *sum, int *prod)
         *sum = 0;
         *prod = 0;
 
-        return ERROR;        
+        return ERROR;
     }
-  
+
 }
 ```
 
@@ -488,25 +509,27 @@ Although Listing 12.7's program works, it can be made easier to read and maintai
 
 Listing 12.8's program demonstrates how references can be used to return multiple values.
 
-### Listing 12.8 The Full Text of `listing_12_8.cpp`
+### Listing 12.8 The Full Text of listing12_8's `main.cpp`
 ```C++
+#include <QCoreApplication>
 #include <iostream>
 
 enum ERROR_CODE { SUCCESS, ERROR };
 
 ERROR_CODE addMul(const int &in1, const int &in2, int &sum, int &prod);
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
 
-    int a = 0, b = 0, sum = 0, prod = 0;
+    int b = 0, c = 0, sum = 0, prod = 0;
 
-    std::cout << "Enter a positive number (> 0): ";
-    std::cin >> a;
     std::cout << "Enter a positive number (> 0): ";
     std::cin >> b;
+    std::cout << "Enter a positive number (> 0): ";
+    std::cin >> c;
 
-    if(addMul(a, b, sum, prod) == SUCCESS)
+    if(addMul(b, c, sum, prod) == SUCCESS)
     {
         std::cout << "a + b = " << sum << std::endl;
         std::cout << "a * b = " << prod << std::endl;
@@ -516,7 +539,8 @@ int main()
         std::cout << "Error: numbers must be positive (> 0)." << std::endl;
     }
 
-    return 0;
+
+    return a.exec();
 }
 
 ERROR_CODE addMul(const int &in1, const int &in2, int &sum, int &prod)
@@ -533,9 +557,8 @@ ERROR_CODE addMul(const int &in1, const int &in2, int &sum, int &prod)
         sum = 0;
         prod = 0;
 
-        return ERROR;        
+        return ERROR;
     }
-  
 }
 ```
 
