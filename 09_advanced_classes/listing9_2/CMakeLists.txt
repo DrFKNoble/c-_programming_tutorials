@@ -15,5 +15,6 @@ find_package(Qt5Core)
 
 add_executable(listing9_2
   main.cpp
+  main.hpp
 )
 target_link_libraries(listing9_2 Qt5::Core)
