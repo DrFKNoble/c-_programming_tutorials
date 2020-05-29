@@ -90,7 +90,7 @@ C++ supports the idea that different objects do the right thing through a langua
 
 The following source code contains the basic framework of a C++ program:
  
-### Listing 2.1 The Full Text of listing 1.1's `main.cpp`.
+### Listing 2.1 The Full Text of listing1_1's `main.cpp`.
 ```C++
 #include <QCoreApplication>
 #include <iostream>
@@ -232,7 +232,7 @@ The return statement causes a function to exit. If you don't include at least on
 
 Listing 2.2 demonstrates how to create a function that takes two integer arguments and returns an integer value.
 
-### Listing 2.2 The Full Text of `listing_2_1.cpp`
+### Listing 2.2 The Full Text of listing2_1's `main.cpp`
 ```C++ 
 #include <QCoreApplication>
 #include <iostream>
