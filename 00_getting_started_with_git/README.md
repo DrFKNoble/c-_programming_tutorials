@@ -16,7 +16,7 @@ Follow the below steps to install Git.
 
 Run the Git installer. When done, you should see the following window:
 
-![Git Installer](images/1.png)
+![Git Installer](/images/1.png)
 
 ## Step 2
 
@@ -24,7 +24,7 @@ Left click on the "Next" button.
 
 When done, you should see the following window:
 
-![Git Installer](images/2.png)
+![Git Installer](/images/2.png)
 
 ## Step 3
 
@@ -32,7 +32,7 @@ Left click on the "Next" button.
 
 When done, you should see the following window:
 
-![Git Installer](images/3.png)
+![Git Installer](/images/3.png)
 
 ## Step 4
 
@@ -40,7 +40,7 @@ Left click on the "Next" button.
 
 When done, you should see the following window:
 
-![Git Installer](images/4.png)
+![Git Installer](/images/4.png)
 
 ## Step 5
 
@@ -48,7 +48,7 @@ Left click on the "Next" button.
 
 When done, you should see the following window:
 
-![Git Installer](images/5.png)
+![Git Installer](/images/5.png)
 
 ## Step 6
 
@@ -56,7 +56,7 @@ Left click on the "Next" button.
 
 When done, you should see the following window:
 
-![Git Installer](images/6.png)
+![Git Installer](/images/6.png)
 
 ## Step 7
 
@@ -64,7 +64,7 @@ Left click on the "Next" button.
 
 When done, you should see the following window:
 
-![Git Installer](images/7.png)
+![Git Installer](/images/7.png)
 
 ## Step 8
 
@@ -72,7 +72,7 @@ Left click on the "Next" button.
 
 When done, you should see the following window:
 
-![Git Installer](images/8.png)
+![Git Installer](/images/8.png)
 
 ## Step 9
 
@@ -80,7 +80,7 @@ Left click on the "Next" button.
 
 When done, you should see the following window:
 
-![Git Installer](images/9.png)
+![Git Installer](/images/9.png)
 
 ## Step 10
 
@@ -88,7 +88,7 @@ Left click on the "Next" button.
 
 When done, you should see the following window:
 
-![Git Installer](images/10.png)
+![Git Installer](/images/10.png)
 
 ## Step 11
 
@@ -96,7 +96,7 @@ Left click on the "Next" button.
 
 When done, you should see the following window:
 
-![Git Installer](images/11.png)
+![Git Installer](/images/11.png)
 
 ## Step 12
 
@@ -104,7 +104,7 @@ Left click on the "Next" button.
 
 When done, you should see the following window:
 
-![Git Installer](images/12.png)
+![Git Installer](/images/12.png)
 
 ## Step 13
 
@@ -112,7 +112,7 @@ Left click on the "Install" button.
 
 When done, you should see the following window:
 
-![Git Installer](images/13.png)
+![Git Installer](/images/13.png)
 
 ## Step 14
 
@@ -120,7 +120,7 @@ Left click on the "Next" button.
 
 When done, you should see the following window:
 
-![Git Installer](images/14.png)
+![Git Installer](/images/14.png)
 
 ## Step 15
 
