@@ -10,7 +10,7 @@
 
  Open Qt Creator. When done, you should see the following window:
 
- ![Qt Creator](images/1.png "Qt Creator")
+ ![Qt Creator](images/1.PNG "Qt Creator")
 
  ## Step 2
 
@@ -18,7 +18,7 @@ Left click on the "File" menu. Left click on the "New File or Project...",
 
 When done, you should see the following window:
 
-![New File or Project - Qt Creator](images/2.png "New File or Project - Qt Creator")
+![New File or Project - Qt Creator](images/2.PNG "New File or Project - Qt Creator")
 
 ## Step 3
 
@@ -26,7 +26,7 @@ Left click on "Qt Console Appliation". Left click on the "Choose..." button.
 
 When done, you should see the following window:
 
-![Qt Console Application](images/3.png "Qt Console Application")
+![Qt Console Application](images/3.PNG "Qt Console Application")
 
 Change the "Name:" text box to what you want your project to be called. Here, I've called it "my_project".
 
@@ -38,7 +38,7 @@ Left click on the "Next" button.
 
 When done, you should see the following window:
 
-![Qt Console Application](images/4.png "Qt Console Application")
+![Qt Console Application](images/4.PNG "Qt Console Application")
 
 Change the "Build System" drop-down menu to the build system you want to use. Here, I've used CMake.
 
@@ -50,7 +50,7 @@ Left click on the "Next" button.
 
 When done, you should see the following window:
 
-![Qt Console Application](images/5.png "Qt Console Application")
+![Qt Console Application](images/5.PNG "Qt Console Application")
 
 Do not change anything.
 
@@ -60,7 +60,7 @@ left click on the "Next" button.
 
 When done, you should see the following window:
 
-![Qt Console Application](images/6.png "Qt Console Application")
+![Qt Console Application](images/6.PNG "Qt Console Application")
 
 Left click on a kit you want to use. Here, I've selected "Desktop Qt 5.15.0 MinGW 64-bit.
 
@@ -72,7 +72,7 @@ left click on the "Next" button.
 
 When done, you should see the following window:
 
-![Qt Console Application](images/7.png "Qt Console Application")
+![Qt Console Application](images/7.PNG "Qt Console Application")
 
 Do not change anything.
 
@@ -82,7 +82,7 @@ Left click on the "Finish" button.
 
 When done, you should see the following window:
 
-![Qt Console Application](images/8.png "Qt Console Application")
+![Qt Console Application](images/8.PNG "Qt Console Application")
 
 # Conclusion
 
