@@ -16,7 +16,7 @@ Follow the below steps to install CMake.
 
 Run the CMake installer. When done, you should see the following window:
 
-![CMake Installer](images/1.png "CMake Installer")
+![CMake Installer](images/1.PNG "CMake Installer")
 
 ## Step 2
 
@@ -24,7 +24,7 @@ Left click on the "Next" button.
 
 When done, you should see the following window:
 
-![CMake Installer](images/2.png "CMake Installer")
+![CMake Installer](images/2.PNG "CMake Installer")
 
 ## Step 3
 
@@ -32,7 +32,7 @@ Left click on "I accept the terms in the License Agreement" checkbox. Left click
 
 When done, you should see the following window:
 
-![CMake Installer](images/3.png "CMake Installer")
+![CMake Installer](images/3.PNG "CMake Installer")
 
 ## Step 4
 
@@ -40,7 +40,7 @@ Left click on the "Add CMake to the system PATH for all users" radio button. Lef
 
 When done, you should see the following window:
 
-![CMake Installer](images/4.png "CMake Installer")
+![CMake Installer](images/4.PNG "CMake Installer")
 
 ## Step 5
 
@@ -48,7 +48,7 @@ Left click on the "Next" button.
 
 When done, you should see the following window:
 
-![CMake Installer](images/5.png "CMake Installer")
+![CMake Installer](images/5.PNG "CMake Installer")
 
 ## Step 6
 
@@ -56,7 +56,7 @@ Left click on the "Next" button.
 
 When done, you should see the following window:
 
-![CMake Installer](images/6.png "CMake Installer")
+![CMake Installer](images/6.PNG "CMake Installer")
 
 ## Step 7
 
@@ -64,7 +64,7 @@ Left click on the "Next" button.
 
 When done, you should see the following window:
 
-![CMake Installer](images/7.png "CMake Installer")
+![CMake Installer](images/7.PNG "CMake Installer")
 
 ## Step 8
 
