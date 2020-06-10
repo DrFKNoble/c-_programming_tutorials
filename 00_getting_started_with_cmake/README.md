@@ -1,22 +1,22 @@
 # How to install CMake
 
- In this README.md, I show you how to install CMake.
+In this README.md, I show you how to install CMake.
 
- # Requirements
+# Requirements
 
- You need to download CMake from here: [https://cmake.org/](https://cmake.org/).
+You need to download CMake from here: [https://cmake.org/](https://cmake.org/).
 
- I have use CMake 3.17.3 here.
+I have used CMake 3.17.3 here.
 
- # Steps
+# Steps
 
- Follow the below steps to install CMake.
+Follow the below steps to install CMake.
 
- ## Step 1
+## Step 1
 
- The CMake installed. When done, you should see the following window:
+Run the CMake installer. When done, you should see the following window:
 
- ![CMake Installer](images/1.png "CMake Installer")
+![CMake Installer](images/1.png "CMake Installer")
 
 ## Step 2
 
