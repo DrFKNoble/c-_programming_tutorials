@@ -16,7 +16,7 @@ Follow the below steps to install Git.
 
 Run the Git installer. When done, you should see the following window:
 
-![Git Installer](/images/1.png)
+![](/images/1.png)
 
 ## Step 2
 
