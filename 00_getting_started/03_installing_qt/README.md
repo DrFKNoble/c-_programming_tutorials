@@ -1,20 +1,20 @@
-# How to install Qt Creator
+# How to install Qt
 
- In this README.md, I show you how to install Qt Creator.
+ In this guide, I show you how to install Qt.
 
 # Requirements
 
 You need to download Qt from here: [https://www.qt.io/](https://www.qt.io/).
 
-I have used the online installer to install Qt 5.15.
+In this guide, I have used the online installer to install Qt 5.15.
 
 # Steps
 
-Follow the below steps to install Qt Creator.
+Follow the below steps to install Qt.
 
 ## Step 1
 
-Run the Qt Creator installer. 
+Run the Qt installer. 
 
 When done, you should see the following window:
 
@@ -78,6 +78,8 @@ Left click on the arrow next to the Qt 5.15.0 option.
 
 Left click on the "MinGW 8.1.0 64-bit" option.
 
+I also recommend selecting the "MSVC 2019 64-bit" option.
+
 When done, you should see the following window:
 
 ![Qt Online Installer](images/7.PNG "Qt Online Installer")
@@ -104,7 +106,7 @@ When done, you should see the following window:
 
 Left click on the "Install" button.
 
-When done, Qt Creator will begin installing.
+When done, Qt will begin installing.
 
 ## Step 11
 
@@ -112,11 +114,12 @@ Left click on the "Finish" button.
 
 # Conclusion
 
-If you've followed these steps correctly, you have installed Qt Creator.
+If you've followed these steps correctly, you have installed Qt.
 
 # Credit
 
 Dr Frazer K. Noble  
+Department of Mechanical and Electrical Engineering  
 Massey University  
 Auckland  
 New Zealand  

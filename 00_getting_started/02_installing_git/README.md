@@ -1,12 +1,12 @@
 # How to install Git
 
-In this README.md, I show you how to install Git.
+In this document, I show you how to install Git.
 
 # Requirements
 
 You need to download Git from here: [https://git-scm.com/](https://git-scm.com/).
 
-I have used Git 2.27.0 here.
+In this guide, I have installed Git 2.27.0.
 
 # Steps
 
@@ -14,7 +14,9 @@ Follow the below steps to install Git.
 
 ## Step 1
 
-Run the Git installer. When done, you should see the following window:
+Run the Git installer.
+
+When done, you should see the following window:
 
 ![Git Installer](images/1.PNG)
 
@@ -133,6 +135,7 @@ If you've followed these steps correctly, you have installed Git.
 # Credit
 
 Dr Frazer K. Noble  
+Department of Mechanical and Electrical Engineering  
 Massey University  
 Auckland  
 New Zealand  
