@@ -56,20 +56,20 @@ The following are the steps to create a C++ program:
 
 Now that you've been introduced to the process, it's time to create a C++ program.
 
-Launch Qt. Create a new Qt Console Application. Name it listing1_1 and create it in a directory of your choosing. Define the build system as CMake. Do not create a translation file. Select an appropriate kit. Do not add the project as a sub-project to another project or add to version control.
+Launch Qt Creator to create a new Non-Qt Plain C++ Application. Name it listing1_1 and create it in a directory of your choosing. Define the build system as CMake. Select an appropriate kit. Do not add the project as a sub-project to another project or add to version control.
 
 Open main.cpp in Qt. Type the text of Listing 1.1. into the editor. Make sure to enter the punctuation on each line properly.
 
 ### Listing 1.1 The Full Text of listing1_1's `main.cpp`
 ```C++
-#include <QCoreApplication>
 #include <iostream>
+
+using namespace std;
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
 
-    std::cout << "Hello World!" << std::endl;
+    cout << "Hello World!" << std::endl;
 
     return a.exec();
 }
@@ -83,15 +83,16 @@ The listing1_1.exe program displays the following output:
 
 ```console
 Hello World!
+Press <RETURN> to close this window...
 ```
 
 ## Summary
 
-Congratulations! You can now call yourself a (novice) C++ programmer. 
+You have now written, compiled, and built your first C++ program.
 
 The C++ language has been a popular choice for software development for more than three decades. The language has its peculiarities, but once you become used to it, it is easy to build your knowledge to create sophisticated programs.
 
-Throughout this course, you will learn the basic building blocks C++.
+Throughout this course, you will learn the basic building blocks of C++.
 
 ## Workshop
 
@@ -139,4 +140,4 @@ A. Absolutely not. C++ uses the compiler to warn you when you're doing something
 
 1. Modify Listing 1.1's program to display the text "Dungeon and Dragons is awesome!".
 
-2. If you don't have a C++ IDE, have a look at Microsoft's Visual Studio Code (https://code.visualstudio.com/) and CMake (https://cmake.org/), or Microsoft's Visual Studio (https://visualstudio.microsoft.com/).
+2. If you don't have a C++ IDE, have a look Qt Creator (https://qt.io). You can also have a look at Microsoft's Visual Studio Code (https://code.visualstudio.com/), or Microsoft's Visual Studio (https://visualstudio.microsoft.com/).
