@@ -66,12 +66,10 @@ Open main.cpp in Qt. Type the text of Listing 1.1. into the editor. Make sure to
 
 using namespace std;
 
-int main(int argc, char *argv[])
+int main()
 {
-
-    cout << "Hello World!" << std::endl;
-
-    return a.exec();
+    cout << "Hello World!" << endl;
+    return 0;
 }
 ```
 
