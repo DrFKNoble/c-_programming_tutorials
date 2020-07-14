@@ -1,10 +1,7 @@
-#include <QCoreApplication>
 #include <iostream>
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
-
     // create a type definition
     typedef unsigned short USHORT;
 
@@ -20,5 +17,5 @@ int main(int argc, char *argv[])
     std::cout << "Length: " << length << std::endl;
     std::cout << "Area: " << area << std::endl;
 
-    return a.exec();
+    return 0;
 }

@@ -47,13 +47,10 @@ This statement displays the number of bytes required to store an integer variabl
 
 ### Listing 3.1 The Full Text of listing3_1's `main.cpp`
 ```C++
-#include <QCoreApplication>
 #include <iostream>
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
-
     std::cout << "The size of an integer: ";
     std::cout << sizeof(int) << " bytes." << std::endl;
     std::cout << "The size of an short integer: ";
@@ -71,7 +68,7 @@ int main(int argc, char *argv[])
     std::cout << "The size of an long long integer: ";
     std::cout << sizeof(long long int) << " bytes." << std::endl;
 
-    return a.exec();
+    return 0;
 }
 ```
 
@@ -224,13 +221,10 @@ Listing 3.2 uses variables and assignments to compute the area of a rectangle an
 
 ### Listing 3.2 The Full Text of listing3_2's `main.cpp`
 ```C++
-#include <QCoreApplication>
 #include <iostream>
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
-
     // set up width and length
     unsigned short width = 26, length;
     length = 40;
@@ -243,8 +237,9 @@ int main(int argc, char *argv[])
     std::cout << "Length: " << length << std::endl;
     std::cout << "Area: " << area << std::endl;
 
-    return a.exec();
+    return 0;
 }
+
 ```
 
 This program produces the following output when run:
@@ -277,13 +272,10 @@ This statement creates a type definition named USHORT that can be used anywhere 
 
 ### Listing 3.3 The Full Text of listing3_3's `main.cpp`
 ```C++
-#include <QCoreApplication>
 #include <iostream>
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
-
     // create a type definition
     typedef unsigned short USHORT;
 
@@ -299,7 +291,7 @@ int main(int argc, char *argv[])
     std::cout << "Length: " << length << std::endl;
     std::cout << "Area: " << area << std::endl;
 
-    return a.exec();
+    return 0;
 }
 ```
 
@@ -378,13 +370,10 @@ Listing 3.4 uses enumerated constants for the eight compass directions, storing 
 
 ### Listing 3.4 The full text of listing3_4's `main.cpp`
 ```C++
-#include <QCoreApplication>
 #include <iostream>
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
-
     // set up enumeration
     enum Direction  { North, Nortwest, East, Southeast, South, Southwest, West, Northwest };
 
@@ -395,7 +384,7 @@ int main(int argc, char *argv[])
 
     std::cout << "Moving " << heading << std::endl;
 
-    return a.exec();
+    return 0;
 }
 ```
 
@@ -441,13 +430,10 @@ Listing 3.5 illustrates the use of the `auto` keyword to compute a computer game
 
 ### Listing 3.5 The Full Text of `listing_3_5.cpp`
 ```C++
-#include <QCoreApplication>
 #include <iostream>
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
-
     //define character values
     auto strength = 80;
     auto accuracy = 45.5;
@@ -463,7 +449,7 @@ int main(int argc, char *argv[])
     std::cout << "Attack rating: " << attack << std::endl;
     std::cout << "Damage rating: " << damage << std::endl;
 
-    return a.exec();
+    return 0;
 }
 ```
 
@@ -471,6 +457,23 @@ Because the `auto` keyword was added in a recent C++ version, you may need to co
 
 ```Console
 g++ -std=c++14 listing_3_5.cpp -o listing_3_5.exe
+```
+
+With CMake, you may need to set the variable CMAKE_CXX_STANDARD to 14. For example:
+
+```Console
+cmake_minimum_required(VERSION 3.5)
+
+project(listing3_5 LANGUAGES CXX)
+
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_executable(listing3_5
+  main.cpp
+)
 ```
 
 After it's compiled successfully and run, the program displays the following output:

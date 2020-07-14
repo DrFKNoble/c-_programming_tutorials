@@ -1,10 +1,7 @@
-#include <QCoreApplication>
 #include <iostream>
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
-
     // set up width and length
     unsigned short width = 26, length;
     length = 40;
@@ -17,5 +14,5 @@ int main(int argc, char *argv[])
     std::cout << "Length: " << length << std::endl;
     std::cout << "Area: " << area << std::endl;
 
-    return a.exec();
+    return 0;
 }

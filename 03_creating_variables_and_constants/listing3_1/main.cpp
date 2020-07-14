@@ -1,10 +1,7 @@
-#include <QCoreApplication>
 #include <iostream>
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
-
     std::cout << "The size of an integer: ";
     std::cout << sizeof(int) << " bytes." << std::endl;
     std::cout << "The size of an short integer: ";
@@ -22,5 +19,5 @@ int main(int argc, char *argv[])
     std::cout << "The size of an long long integer: ";
     std::cout << sizeof(long long int) << " bytes." << std::endl;
 
-    return a.exec();
+    return 0;
 }

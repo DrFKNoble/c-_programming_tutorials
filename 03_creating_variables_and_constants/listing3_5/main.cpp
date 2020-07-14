@@ -1,10 +1,7 @@
-#include <QCoreApplication>
 #include <iostream>
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
-
     //define character values
     auto strength = 80;
     auto accuracy = 45.5;
@@ -20,5 +17,5 @@ int main(int argc, char *argv[])
     std::cout << "Attack rating: " << attack << std::endl;
     std::cout << "Damage rating: " << damage << std::endl;
 
-    return a.exec();
+    return 0;
 }

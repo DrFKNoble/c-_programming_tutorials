@@ -1,10 +1,7 @@
-#include <QCoreApplication>
 #include <iostream>
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
-
     // set up enumeration
     enum Direction  { North, Nortwest, East, Southeast, South, Southwest, West, Northwest };
 
@@ -15,5 +12,5 @@ int main(int argc, char *argv[])
 
     std::cout << "Moving " << heading << std::endl;
 
-    return a.exec();
+    return 0;
 }
